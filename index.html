@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <div class="form">
+    <form method="post" action="submit.php">
 
         <div class="title">
             <h1>Social Security System Online Form</h1>
@@ -17,21 +17,21 @@
         <div class="name-div">
             <div class="name">Name: (Last Name) (First Name) (Middle Name) (Suffix)</div>
             <div class="input-div">
-                <input type="text" name="name" placeholder="Your answer">
+                <input type="text" name="name" placeholder="Your answer" required>
             </div>
         </div>
 
         <div class="dob-div">
             <div class="name">Date of Birth: (MMDDYYYY)</div>
             <div class="input-div">
-                <input type="date" name="dob" placeholder="Your answer">
+                <input type="date" name="dob" placeholder="Your answer" required>
             </div>
         </div>
 
         <div class="sex-div">
             <div class="name">Sex:</div>
             <div class="input-div">
-                <input type="radio" name="sex" value="male">Male</div>
+                <input type="radio" name="sex" value="male">Male
                 <input type="radio" name="sex" value="female">Female
             </div>
         </div>
@@ -51,43 +51,46 @@
         <div class="nationality-div">
             <div class="name">Nationality:</div>
             <div class="input-div">
-                <input type="text" name="nationality" placeholder="Your Answer">
+                <input type="text" name="nationality" placeholder="Your Answer" required>
             </div>
         </div>
 
         <div class="pob-div">
             <div class="name">Place of Birth:</div>
             <div class="input-div">
-                <input type="text" name="pob" placeholder="Your Answer">
-                <input type="checkbox" id="sameAddress">The same with Home Address
+                <input type="text" name="pob" id="pob" placeholder="Your Answer" required>
+                <label>
+                    <input type="checkbox" id="sameAddress">
+                    The same with Home Address
+                </label>
             </div>
         </div>
 
-        <div class="address-div">
+        <div class="address-div" id="addressDiv">
             <div class="name">Home Address:</div>
             <div class="input-div">
-                <input type="text" name="address" placeholder="Your Answer">
+                <input type="text" name="address" id="address" placeholder="Your Answer" required>
             </div>
         </div>
 
         <div class="number-div">
             <div class="name">Mobile/Cellphone Number:</div>
             <div class="input-div">
-                <input type="text" name="number" placeholder="Your Answer">
+                <input type="text" name="number" placeholder="Your Answer" required>
             </div>
         </div>
 
         <div class="email-div">
             <div class="name">Email Address:</div>
             <div class="input-div">
-                <input type="email" name="email" placeholder="Your Answer">
+                <input type="email" name="email" placeholder="Your Answer" required>
             </div>
         </div>
 
+        <button type="submit">Submit</button>
 
+    </form>
 
-
-    </div>
-
+    <script src="script.js"></script>
 </body>
 </html>

@@ -16,18 +16,44 @@
 
         <div class="name-div">
             <div class="name">Name: (Last Name) (First Name) (Middle Name) (Suffix)</div>
-            <div class="input-div"><input type="text" name="answer" placeholder="Your answer"></div>
+            <div class="input-div">
+                <input type="text" name="name" placeholder="Your answer">
+            </div>
         </div>
 
         <div class="dob-div">
             <div class="name">Date of Birth: (MMDDYYYY)</div>
-            <div class="input-div"><input type="date" name="answer" placeholder="Your answer"></div>
+            <div class="input-div">
+                <input type="date" name="dob" placeholder="Your answer">
+            </div>
         </div>
 
         <div class="sex-div">
             <div class="name">Sex:</div>
+            <div class="input-div">
+                <input type="radio" name="sex" value="male">Male</div>
+                <input type="radio" name="sex" value="female">Female
+            </div>
         </div>
 
+        <div class="cs-div">
+            <div class="name">Civil Status</div>
+            <div class="input-div">
+                <input type="radio" name="cs" value="single">Single
+                <input type="radio" name="cs" value="married">Married
+                <input type="radio" name="cs" value="widowed">Widowed
+                <input type="radio" name="cs" value="legally separated">Legally Separated
+                <input type="radio" name="cs" value="others">Others
+                <input type="text" id="otherText" name="cs_other" placeholder="Your Answer" disabled>
+            </div>
+        </div>
+
+        <div class="nationality-div">
+            <div class="name">Nationality</div>
+            <div class="input-div">
+                <input type="text" name="nationality" placeholder="Your Answer">
+            </div>
+        </div>
 
 
 

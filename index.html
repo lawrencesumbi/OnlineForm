@@ -10,8 +10,23 @@
     
     <form method="post" action="submit.php">
 
-        <div class="title">
+        <div class="title-div">
             <h1>Social Security System Online Form</h1>
+        </div>
+
+        <div class="title-div">
+            <h3>Part I - To Be Filled Out By The Registrant</h3>
+        </div>
+
+        <div class="title-div">
+            <h3>A. Personal Data</h3>
+        </div>
+
+        <div class="sss-div">
+            <div class="name">SS Number:</div>
+            <div class="input-div">
+                <input type="text" name="sss" placeholder="Your answer" required>
+            </div>
         </div>
 
         <div class="name-div">
@@ -48,6 +63,13 @@
             </div>
         </div>
 
+        <div class="tin-div">
+            <div class="name">Tax Identification Number (If Any)</div>
+            <div class="input-div">
+                <input type="text" name="tin" placeholder="Your Answer">
+            </div>
+        </div>
+
         <div class="nationality-div">
             <div class="name">Nationality:</div>
             <div class="input-div">
@@ -73,6 +95,13 @@
             </div>
         </div>
 
+        <div class="zip-div">
+            <div class="name">ZIP Code:</div>
+            <div class="input-div">
+                <input type="text" name="zip" placeholder="Your Answer" required>
+            </div>
+        </div>
+
         <div class="number-div">
             <div class="name">Mobile/Cellphone Number:</div>
             <div class="input-div">
@@ -87,10 +116,249 @@
             </div>
         </div>
 
+        <div class="tel-div">
+            <div class="name">Telephone Number:</div>
+            <div class="input-div">
+                <input type="text" name="tel" placeholder="Your Answer">
+            </div>
+        </div>
+
+        <div class="father-div">
+            <div class="name">Father: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="input-div">
+                <input type="text" name="father" placeholder="Your Answer">
+            </div>
+        </div>
+
+        <div class="mother-div">
+            <div class="name">Mother's Maiden Name: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="input-div">
+                <input type="text" name="mother" placeholder="Your Answer">
+            </div>
+        </div>
+
+        <div class="title-div">
+            <h3>B. Dependent(s)/Beneficiary/ies</h3>
+        </div>
+
+        <div class="spouse-div">
+            <div class="name">Spouse: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="input-div">
+                <input type="text" name="spouse" placeholder="Your Answer">
+            </div>
+        </div>
+
+        <div class="spousedob-div">
+            <div class="name">Date of Birth: (MMDDYYYY)</div>
+            <div class="input-div">
+                <input type="date" name="spousedob" placeholder="Your answer" required>
+            </div>
+        </div>
+
+        <div class="children-div">
+            <div class="name">Child/ren: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="input-div">
+                <input type="text" name="children" placeholder="Your Answer">
+            </div>
+        </div>
+        
+        <div class="childdob-div">
+            <div class="name">Date of Birth: (MMDDYYYY)</div>
+            <div class="input-div">
+                <input type="date" name="childdob" placeholder="Your answer" required>
+            </div>
+        </div>
+
+        <div class="children-div">
+            <div class="name">Child/ren: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="input-div">
+                <input type="text" name="children" placeholder="Your Answer">
+            </div>
+        </div>
+        
+        <div class="childdob-div">
+            <div class="name">Date of Birth: (MMDDYYYY)</div>
+            <div class="input-div">
+                <input type="date" name="childdob" placeholder="Your answer" required>
+            </div>
+        </div>
+
+        <div class="children-div">
+            <div class="name">Child/ren: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="input-div">
+                <input type="text" name="children" placeholder="Your Answer">
+            </div>
+        </div>
+        
+        <div class="childdob-div">
+            <div class="name">Date of Birth: (MMDDYYYY)</div>
+            <div class="input-div">
+                <input type="date" name="childdob" placeholder="Your answer" required>
+            </div>
+        </div>
+
+        <div class="benif-div">
+            <div class="name">Other Beneficiaries (if all of them are deceased): (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="input-div">
+                <input type="text" name="benif" placeholder="Your Answer">
+            </div>
+        </div>
+
+        <div class="rel-div">
+            <div class="name">Relationship:</div>
+            <div class="input-div">
+                <input type="text" name="rel" placeholder="Your Answer">
+            </div>
+        </div>
+        
+        <div class="benefdob-div">
+            <div class="name">Date of Birth: (MMDDYYYY)</div>
+            <div class="input-div">
+                <input type="date" name="benifdob" placeholder="Your answer" required>
+            </div>
+        </div>
+
+        <div class="benif-div">
+            <div class="name">Other Beneficiaries (if all of them are deceased): (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="input-div">
+                <input type="text" name="benef" placeholder="Your Answer">
+            </div>
+        </div>
+
+        <div class="rel-div">
+            <div class="name">Relationship:</div>
+            <div class="input-div">
+                <input type="text" name="rel" placeholder="Your Answer">
+            </div>
+        </div>
+        
+        <div class="benefdob-div">
+            <div class="name">Date of Birth: (MMDDYYYY)</div>
+            <div class="input-div">
+                <input type="date" name="benefdob" placeholder="Your answer" required>
+            </div>
+        </div>
+
+        <div class="title-div">
+            <h3>C. For Self-Employed/Overseas Filipino Worker/Non Working Spouse</h3>
+        </div>
+
+        <div class="se-div">
+            <div class="name">Self-Employed (SE)</div>
+                <div class="sub-name">Profession/Business</div>
+                <div class="input-div">
+                    <input type="text" name="prof/bus" placeholder="Your Answer">
+                </div>
+                <div class="sub-name">Year Prof./Business Started</div>
+                <div class="input-div">
+                    <input type="text" name="year/star" placeholder="Your Answer">
+                </div>
+                <div class="sub-name">Monthly Earnings</div>
+                <div class="input-div">
+                    <input type="text" name="monthly" placeholder="Your Answer">
+                </div>
+        </div>
+
+        <div class="ofw-div">
+            <div class="name">Overseas Filipino Worker (OFW)</div>
+                <div class="sub-name">Foreign Address</div>
+                <div class="input-div">
+                    <input type="text" name="foradd" placeholder="Your Answer">
+                </div>
+                <div class="sub-name">Monthly Earnings</div>
+                <div class="input-div">
+                    <input type="text" name="monthly" placeholder="Your Answer">
+                </div>
+                <div class="sub-name">Are you applying for membership in the Flexi-Fund Program?</div>
+                <div class="input-div">
+                    <input type="radio" name="membership" value="yes">YES
+                    <input type="radio" name="membership" value="no">NO
+                </div>
+        </div>
+
+        <div class="nws-div">
+            <div class="name">Non-Working Spouse (NWS)</div>
+                <div class="sub-name">SS No./Common Reference No. of Working Spouse</div>
+                <div class="input-div">
+                    <input type="text" name="sss" placeholder="Your Answer">
+                </div>
+                <div class="sub-name">Monthly Income of Working Spouse</div>
+                <div class="input-div">
+                    <input type="text" name="monthly" placeholder="Your Answer">
+                </div>
+                <div class="sub-name">I agree with my spouse membership with SSS.</div>
+                <div class="input-div">
+                    <input type="text" name="agree" placeholder="Your Answer">
+                </div>
+                <div class="sub-name">Signature over printed name of working spouse.</div>
+        </div>
+
+        <div class="title-div">
+            <h3>D. Certification</h3>
+        </div>
+
+        <div class="certify-div">
+            <div class="sub-name">I certify that the information provided in this form are true and correct. (If registrant cannot sign, affix fingerprints in the presence of an SSS personnel.)</div>
+            <div class="input-div">
+                <input type="text" name="printed" placeholder="Your Answer">
+            </div>
+            <div class="sub-name">Printed Name</div>
+            <div class="input-div">
+                <input type="text" name="signature" placeholder="Your Answer">
+            </div>
+            <div class="sub-name">Signature</div>
+            <div class="input-div">
+                <input type="date" name="date" placeholder="Your Answer" required>
+            </div>
+            <div class="sub-name">Date</div>
+            <div class="sub-name">Registrant is required to affix fingerprints</div>
+            <div class="input-div">
+                <input type="text" name="right" placeholder="Your right thumb">
+                <input type="text" name="right" placeholder="Your right index">
+            </div>
+        </div>
+
+        <div class="title-div">
+            <h3>Part II - To Be Filled Out By SSS</h3>
+        </div>        
+
+        <div class="left-con">
+            <div class="name">Business Code For (SE)</div>
+            <div class="input-div">
+                <input type="text" name="bc" placeholder="Your Answer">
+            </div>
+            <div class="name">Working Spouces</div>
+        </div>
+
+        <div class="right-con">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <button type="submit">Submit</button>
 
     </form>
 
     <script src="script.js"></script>
+
+
 </body>
 </html>

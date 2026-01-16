@@ -1,0 +1,54 @@
+body{background-color: red; width: 1180px; margin: 0 auto; font-family: Cambria;}
+.main{width: 1180px; height: auto; background-color: rgb(0, 187, 255); padding-top: 10px;}
+.header-div{background-color: blueviolet; border: 1px solid black; margin-top: 20px; margin-left: 20px; margin-right: 20px; display: flex;}
+.title-div{text-align: center; border: 1px solid #000000; margin-left: 20px; margin-right: 20px;}
+.title-div h3{margin: 0;}
+.top-div{width: 75%; text-align: center; margin-top: 10px; margin-bottom: 10px;}
+.top-div h1{margin: 0;}
+.sss-div{width: 25%; background-color: aliceblue; text-align: left; margin-top: 10px; margin-bottom: 10px;}
+.personal-div{background-color: yellow; border: 1px solid black; margin-left: 20px; margin-right: 20px;}
+.namedob-div{display: flex; border: 1px solid black;}
+.name-div{width: 75%;}
+.dob-div{width: 25%;}
+.sexcstin-div{display: flex; border: 1px solid black;}
+.sex-div{width: 17%;}
+.cs-div{width: 58%;}
+.tin-div{width: 25%;}
+.natrelpob-div{display: flex; border: 1px solid black;}
+.nationality-div{width: 17%;}
+.religion-div{width: 17%;}
+.pob-div{width: 66%;}
+.addzip-div{display: flex; border: 1px solid black;}
+.address-div{width: 75%;}
+.zip-div{width: 25%;}
+.contact-div{display: flex; border: 1px solid black;}
+.number-div{width: 35%;}
+.email-div{width: 40%;}
+.tel-div{width: 25%;}
+.father-div{border: 1px solid black;}
+.mother-div{border: 1px solid black;}
+.dependent-div{background-color: rgb(111, 255, 0); border: 1px solid black; margin-left: 20px; margin-right: 20px;}
+.spouse-con{display: flex; border: 1px solid black;}
+.spouse-div{width: 75%;}
+.spousedob-div{width: 25%;}
+.child-con{display: flex; border: 1px solid black;}
+.children-div{width: 75%;}
+.childdob-div{width: 25%;}
+.beneficiaries-con{display: flex; border: 1px solid black;}
+.benif-div{width: 55%;}
+.rel-div{width: 20%;}
+.benefdob-div{width: 25%;}
+.work-div{background-color: yellow; border: 1px solid black; margin-left: 20px; margin-right: 20px; display: flex;}
+.se-div{width: 20%;}
+.ofw-div{width: 45%;}
+.nws-div{width: 35%;}
+.certification-div{background-color: rgb(111, 255, 0); border: 1px solid black; margin-left: 20px; margin-right: 20px; display: flex;}
+.certify-div{width: 65%;}
+.finger-div{width: 35%;}
+.sign-div{display: flex;}
+.sssemployee-div{background-color: yellow; border: 1px solid black; margin-left: 20px; margin-right: 20px; display: flex;}
+.left-con{width: 35%; display: flex; background-color: rgb(111, 255, 0);}
+.right-con{width: 65%;}
+.subcenter-con{display: flex; background-color: aquamarine;}
+.subleft-con{width: 50%;}
+.subright-con{width: 50%;}

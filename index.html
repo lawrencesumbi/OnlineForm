@@ -8,24 +8,28 @@
 </head>
 <body>
     
-<div class="main">
-<div class="whole-div">
+<div class="bondpaper">
 
     <form method="post" action="submit.php">
 
     <div class="header-div">
+        <div class="logo-div">
+            <img src="img/logo.jpg" alt="logo">
+        </div>
         <div class="top-div">
-            <h1>Social Security System</h1>
-            <h1>Personal Record</h1>
-            <h1>For Issuance of SS Number</h1>
+            <h1>SOCIAL SECURITY SYSTEM</h1>
+            <h1>PERSONAL RECORD</h1>
+            <h1>FOR ISSUANCE OF SS NUMBER</h1>
         </div>
         <div class="sss-div">
             <div class="name">SS Number:</div>
             <div class="input-div">
-                <input type="text" name="sss" placeholder="Your answer" required>
+                <input type="text" name="sss" placeholder="00-0000000-0" required>
             </div>
         </div>
     </div>
+
+<div class="margin-div">
 
         <div class="title-div">
             <h3>Part I - To Be Filled Out By The Registrant</h3>
@@ -39,9 +43,9 @@
 
         <div class="namedob-div">
             <div class="name-div">
-                <div class="name">Name: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+                <div class="name">Name:</div>
                 <div class="input-div">
-                    <input type="text" name="name" placeholder="Your answer" required>
+                    <input type="text" name="name" placeholder="Lastname,       Firstname       Middlename       Suffix" required>
                 </div>
             </div>
 
@@ -56,26 +60,30 @@
         <div class="sexcstin-div">
             <div class="sex-div">
                 <div class="name">Sex:</div>
-                <div class="input-div">
+                <div class="sexinput-div">
                     <input type="radio" name="sex" value="male">Male
                     <input type="radio" name="sex" value="female">Female
                 </div>
             </div>
             <div class="cs-div">
                 <div class="name">Civil Status:</div>
-                <div class="input-div">
-                    <input type="radio" name="cs" value="single">Single
-                    <input type="radio" name="cs" value="married">Married
-                    <input type="radio" name="cs" value="widowed">Widowed
-                    <input type="radio" name="cs" value="legally separated">Legally Separated
-                    <input type="radio" name="cs" value="others">Others
-                    <input type="text" id="otherText" name="cs_other" placeholder="Your Answer" disabled>
+                <div class="csinput-div">
+                    <div class="radioinput-div">
+                        <input type="radio" name="cs" value="single">Single
+                        <input type="radio" name="cs" value="married">Married
+                        <input type="radio" name="cs" value="widowed">Widowed
+                        <input type="radio" name="cs" value="legally separated">Legally Separated
+                        <input type="radio" name="cs" value="others">Others
+                    </div>
+                    <div class="textinput-div">
+                        <input type="text" id="otherText" name="cs_other" placeholder="Your Answer" disabled>
+                    </div>
                 </div>
             </div>
             <div class="tin-div">
                 <div class="name">Tax Identification Number (If Any)</div>
                 <div class="input-div">
-                    <input type="text" name="tin" placeholder="Your Answer">
+                    <input type="text" name="tin" placeholder="000-000-000">
                 </div>
             </div>
         </div>
@@ -95,12 +103,13 @@
             </div>
             <div class="pob-div">
                 <div class="name">Place of Birth:</div>
-                <div class="input-div">
-                    <input type="text" name="pob" id="pob" placeholder="Your Answer" required>
-                    <label>
-                        <input type="checkbox" id="sameAddress">
-                        The same with Home Address
-                    </label>
+                <div class="pobcheck-div">
+                    <div class="pobinput-div">
+                        <input type="text" name="pob" id="pob" placeholder="(City/Municipality, Province)   (City, Country, if born outside the Philippines)" required>
+                    </div>
+                    <div class="checkinput-div">
+                        <input type="checkbox" id="sameAddress">The same with Home Address
+                    </div>
                 </div>
             </div>
         </div>
@@ -109,13 +118,13 @@
             <div class="address-div" id="addressDiv">
                 <div class="name">Home Address:</div>
                 <div class="input-div">
-                    <input type="text" name="address" id="address" placeholder="Your Answer" required>
+                    <input type="text" name="address" id="address" placeholder="(Rm./Flr./Unit No. & Bldg. Name) (House/Lot & Blk. No.) (Street Name) (Barangay/District) (City/Municipality) (Province) (Country)" required>
                 </div>
             </div>
             <div class="zip-div">
                 <div class="name">ZIP Code:</div>
                 <div class="input-div">
-                    <input type="text" name="zip" placeholder="Your Answer" required>
+                    <input type="text" name="zip" placeholder="0000" required>
                 </div>
             </div>
         </div>
@@ -124,34 +133,34 @@
             <div class="number-div">
                 <div class="name">Mobile/Cellphone Number:</div>
                 <div class="input-div">
-                    <input type="text" name="number" placeholder="Your Answer" required>
+                    <input type="text" name="number" placeholder="+63" required>
                 </div>
             </div>
             <div class="email-div">
                 <div class="name">Email Address:</div>
                 <div class="input-div">
-                    <input type="email" name="email" placeholder="Your Answer" required>
+                    <input type="email" name="email" placeholder="@gmail.com" required>
                 </div>
             </div>
             <div class="tel-div">
                 <div class="name">Telephone Number:</div>
                 <div class="input-div">
-                    <input type="text" name="tel" placeholder="Your Answer">
+                    <input type="text" name="tel" placeholder="+63">
                 </div>
             </div>
         </div>
 
         <div class="father-div">
-            <div class="name">Father: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="name">Father's Name:</div>
             <div class="input-div">
-                <input type="text" name="father" placeholder="Your Answer">
+                <input type="text" name="father" placeholder="Lastname,       Firstname       Middlename       Suffix">
             </div>
         </div>
 
         <div class="mother-div">
-            <div class="name">Mother's Maiden Name: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+            <div class="name">Mother's Maiden Name:</div>
             <div class="input-div">
-                <input type="text" name="mother" placeholder="Your Answer">
+                <input type="text" name="mother" placeholder="Lastname,       Firstname       Middlename       Suffix">
             </div>
         </div>
 
@@ -461,7 +470,7 @@
 </div>
 </div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

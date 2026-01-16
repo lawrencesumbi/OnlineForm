@@ -9,21 +9,23 @@
 <body>
     
 <div class="main">
+<div class="whole-div">
 
     <form method="post" action="submit.php">
-        <div class="header-div">
-            <div class="top-div">
-                <h1>Social Security System</h1>
-                <h1>Personal Record</h1>
-                <h1>For Issuance of SS Number</h1>
-            </div>
-            <div class="sss-div">
-                <div class="name">SS Number:</div>
-                <div class="input-div">
-                    <input type="text" name="sss" placeholder="Your answer" required>
-                </div>
+
+    <div class="header-div">
+        <div class="top-div">
+            <h1>Social Security System</h1>
+            <h1>Personal Record</h1>
+            <h1>For Issuance of SS Number</h1>
+        </div>
+        <div class="sss-div">
+            <div class="name">SS Number:</div>
+            <div class="input-div">
+                <input type="text" name="sss" placeholder="Your answer" required>
             </div>
         </div>
+    </div>
 
         <div class="title-div">
             <h3>Part I - To Be Filled Out By The Registrant</h3>
@@ -449,11 +451,14 @@
         </div>
 
     </div>
-    
-    <button type="submit">Submit</button>
+
+    <div class="submit-div">
+        <button type="submit">Submit</button>
+    </div>
 
     </form>
 
+</div>
 </div>
 
     <script src="script.js"></script>

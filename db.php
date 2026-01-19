@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "sss_form";
+$dbname = "sss_db";
 $user = "root";
 $pass = "";
 

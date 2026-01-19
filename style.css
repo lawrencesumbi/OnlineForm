@@ -65,5 +65,5 @@ body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-f
 .subcenter-con{display: flex;}
 .subleft-con{width: 50%; border-right: 2px solid black; border-bottom: 2px solid black;}
 .subright-con{width: 50%; border-bottom: 2px solid black;}
-.subbottom-con{border-bottom: 2px solid black;}
+.subbottom-con{border-bottom: 3px solid black;}
 .submit-div{border: 1px solid black; text-align: center; padding-top: 10px; padding-bottom: 10px; padding-right: 10px;}

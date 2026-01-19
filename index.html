@@ -8,9 +8,9 @@
 </head>
 <body>
     
-<div class="bondpaper">
+<form method="post" action="submit.php">
 
-    <form method="post" action="submit.php">
+<div class="bondpaper">
 
     <div class="header-div">
         <div class="logo-div">
@@ -24,7 +24,7 @@
         <div class="sss-div">
             <div class="name">SS Number:</div>
             <div class="input-div">
-                <input type="text" name="sss" placeholder="00-0000000-0" required>
+                <input type="text" name="sss" placeholder="00-0000000-0">
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
             <div class="religion-div">
                 <div class="name">Religion:</div>
                 <div class="input-div">
-                    <input type="text" name="religion" placeholder="Your Answer" required>
+                    <input type="text" name="religion" placeholder="Your Answer">
                 </div>
             </div>
             <div class="pob-div">
@@ -124,7 +124,7 @@
             <div class="zip-div">
                 <div class="name">ZIP Code:</div>
                 <div class="input-div">
-                    <input type="text" name="zip" placeholder="0000" required>
+                    <input type="text" name="zip" placeholder="0000">
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
             <div class="spousedob-div">
                 <div class="name">Date of Birth: (MMDDYYYY)</div>
                 <div class="input-div">
-                    <input type="date" name="spousedob" placeholder="Your answer" required>
+                    <input type="date" name="spousedob" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -191,13 +191,13 @@
             <div class="children-div">
                 <div class="name">Child/ren: (Last Name) (First Name) (Middle Name) (Suffix)</div>
                 <div class="input-div">
-                    <input type="text" name="children" placeholder="Your Answer">
+                    <input type="text" name="children[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="childdob-div">
                 <div class="name">Date of Birth: (MMDDYYYY)</div>
                 <div class="input-div">
-                    <input type="date" name="childdob" placeholder="Your answer" required>
+                    <input type="date" name="childdob[]" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -210,7 +210,7 @@
             </div>
             <div class="childdob-div">
                 <div class="input-div">
-                    <input type="date" name="childdob" placeholder="Your answer" required>
+                    <input type="date" name="childdob" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -223,7 +223,7 @@
             </div>
             <div class="childdob-div">
                 <div class="input-div">
-                    <input type="date" name="childdob" placeholder="Your answer" required>
+                    <input type="date" name="childdob" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -244,7 +244,7 @@
             <div class="benefdob-div">
                 <div class="name">Date of Birth: (MMDDYYYY)</div>
                 <div class="input-div">
-                    <input type="date" name="benifdob" placeholder="Your answer" required>
+                    <input type="date" name="benifdob" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -262,7 +262,7 @@
             </div>
             <div class="benefdob-div">
                 <div class="input-div">
-                    <input type="date" name="benefdob" placeholder="Your answer" required>
+                    <input type="date" name="benefdob" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -279,15 +279,15 @@
             <div class="name">Self-Employed (SE)</div>
                 <div class="sub-name">Profession/Business</div>
                 <div class="input-div">
-                    <input type="text" name="prof/bus" placeholder="Your Answer">
+                    <input type="text" name="prof_bus" placeholder="Your Answer">
                 </div>
                 <div class="sub-name">Year Prof./Business Started</div>
                 <div class="input-div">
-                    <input type="text" name="year/star" placeholder="Your Answer">
+                    <input type="text" name="year_star" placeholder="Your Answer">
                 </div>
                 <div class="sub-name">Monthly Earnings</div>
                 <div class="input-div">
-                    <input type="text" name="monthly" placeholder="P">
+                    <input type="text" name="monthly_se" placeholder="P">
                 </div>
         </div>
 
@@ -299,7 +299,7 @@
                 </div>
                 <div class="sub-name">Monthly Earnings</div>
                 <div class="input-div">
-                    <input type="text" name="monthly" placeholder="P">
+                    <input type="text" name="monthly_ofw" placeholder="P">
                 </div>
                 <div class="sub-name">Are you applying for membership in the Flexi-Fund Program?</div>
                 <div class="memberinput-div">
@@ -312,11 +312,11 @@
             <div class="name">Non-Working Spouse (NWS)</div>
                 <div class="sub-name">SS No./Common Reference No. of Working Spouse</div>
                 <div class="input-div">
-                    <input type="text" name="sss" placeholder="Your Answer">
+                    <input type="text" name="reference" placeholder="Your Answer">
                 </div>
                 <div class="sub-name">Monthly Income of Working Spouse</div>
                 <div class="input-div">
-                    <input type="text" name="monthly" placeholder="Your Answer">
+                    <input type="text" name="monthly_nws" placeholder="Your Answer">
                 </div>
                 <div class="sub-name">I agree with my spouse membership with SSS.</div>
                 <div class="input-div">
@@ -374,7 +374,7 @@
                 </div>
                 <div class="name">Monthly Contribution (SE/OFW/NWS)</div>
                 <div class="input-div">
-                    <input type="text" name="monthly" placeholder="Your Answer">
+                    <input type="text" name="monthly_business" placeholder="Your Answer">
                 </div>
                 <div class="name">Start of Payment (For SE/NWS)</div>
                 <div class="input-div">
@@ -455,10 +455,10 @@
         <button type="submit">Submit</button>
     </div>
 
-    </form>
+</div>
+</div>
 
-</div>
-</div>
+</form>
 
 <script src="script.js"></script>
 

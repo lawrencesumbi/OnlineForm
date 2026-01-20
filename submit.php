@@ -37,8 +37,9 @@ $data = [
 ========================= */
     'spouse_name'    => post('spouse'),
     'spouse_dob'     => post('spousedob'),
-    'children'       => implode(' | ', $_POST['children'] ?? []),
-    'children_dob'   => implode(' | ', $_POST['childdob'] ?? []),
+    'children'     => implode(' | ', (array) ($_POST['children'] ?? [])),
+    'children_dob' => implode(' | ', (array) ($_POST['childdob'] ?? [])),
+
     'beneficiary'    => post('benif'),
     'beneficiary_rel'=> post('rel'),
     'beneficiary_dob'=> post('benifdob'),
@@ -112,4 +113,35 @@ $sql = "INSERT INTO sss_members (
 $stmt = $pdo->prepare($sql);
 $stmt->execute($data);
 
-echo "✅ Form successfully submitted!";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Successful</title>
+</head>
+<body>
+    <div class="inner-con">
+        <div class="check-icon">
+            <img src="img/greencheck.png" alt="check-icon">
+        </div>
+        <div class="suctext-div">
+            <h1>Submission Successful!</h1>
+            <p>We have received your information and will process it shortly. Thank you.</p>
+        </div>
+        <div class="back-div">
+            <a href="index.html"><button type="button">Back to Form</button></a>
+        </div>
+    </div>
+<style>
+body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
+.inner-con{width: 590px; margin: 0 auto; height: auto; background-color: white; padding-top: 30px; padding-bottom: 30px; border-radius: 10px;}
+.check-icon{text-align: center;}
+.check-icon img{height: 100px; width: 100px;}
+.suctext-div{text-align: center;}
+.back-div{text-align: center;}
+</style>
+</body>
+</html>

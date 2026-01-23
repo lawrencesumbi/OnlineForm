@@ -59,8 +59,25 @@ $spouse_income          =   $_POST['spouse_income'];
 $agreement              =   $_POST['agreement'];
 
 
+$printed_name       =   $_POST['printed_name'];
+$cert_signature     =   $_POST['cert_signature'];
+$cert_date          =   $_POST['cert_date'];
+$right_thumb        =   $_POST['right_thumb'];
+$right_index        =   $_POST['right_index'];
 
 
+$business_code          =   $_POST['business_code'];
+$monthly_contribution   =   $_POST['monthly_contribution'];
+$start_payment          =   $_POST['start_payment'];
+$working_spouse         =   $_POST['working_spouse'];
+$approved_msc           =   $_POST['approved_msc'];
+$flexi_fund             =   $_POST['flexi_fund'];
+$received_signature     =   $_POST['received_signature'];
+$received_date          =   $_POST['received_date'];
+$processed_signature    =   $_POST['processed_signature'];
+$processed_date         =   $_POST['processed_date'];
+$reviewed_signature     =   $_POST['reviewed_signature'];
+$reviewed_date          =   $_POST['reviewed_date'];
 
 
 
@@ -137,6 +154,54 @@ $stmt3->execute([
     ':spouse_income'       => $spouse_income,
     ':agreement'           => $agreement
 ]);
+
+
+
+
+$sql4 = "INSERT INTO certification
+(personal_data_id, printed_name, cert_signature, cert_date, right_thumb, right_index)
+VALUES
+(:personal_data_id, :printed_name, :cert_signature, :cert_date, :right_thumb, :right_index)";
+
+$stmt4 = $pdo->prepare($sql4);
+
+$stmt4->execute([
+    ':personal_data_id' => $personal_data_id,
+    ':printed_name'     => $printed_name,
+    ':cert_signature'   => $cert_signature,
+    ':cert_date'        => $cert_date,
+    ':right_thumb'      => $right_thumb,
+    ':right_index'      => $right_index
+]);
+
+
+
+$sql5 = "INSERT INTO filled_sss
+(personal_data_id, business_code, monthly_contribution, start_payment, working_spouse, approved_msc, flexi_fund,
+ received_signature, received_date, processed_signature, processed_date, reviewed_signature, reviewed_date)
+VALUES
+(:personal_data_id, :business_code, :monthly_contribution, :start_payment, :working_spouse, :approved_msc, :flexi_fund,
+ :received_signature, :received_date, :processed_signature, :processed_date, :reviewed_signature, :reviewed_date)";
+
+
+$stmt5 = $pdo->prepare($sql5);
+
+$stmt5->execute([
+    ':personal_data_id'      => $personal_data_id,  // from lastInsertId()
+    ':business_code'         => $business_code,
+    ':monthly_contribution'  => $monthly_contribution,
+    ':start_payment'         => $start_payment,
+    ':working_spouse'        => $working_spouse,
+    ':approved_msc'          => $approved_msc,
+    ':flexi_fund'            => $flexi_fund,
+    ':received_signature'    => $received_signature,
+    ':received_date'         => $received_date,
+    ':processed_signature'   => $processed_signature,
+    ':processed_date'        => $processed_date,
+    ':reviewed_signature'    => $reviewed_signature,
+    ':reviewed_date'         => $reviewed_date
+]);
+
 
 
 

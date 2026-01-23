@@ -1,43 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const radios = document.querySelectorAll('input[name="cs"]');
-  const otherText = document.getElementById("otherText");
+const radios = document.querySelectorAll('input[name="cs"]');
+const otherInput = document.getElementById('otherText');
 
-  radios.forEach(radio => {
-    radio.addEventListener("change", () => {
-      if (radio.value === "others" && radio.checked) {
-        otherText.disabled = false;
-        otherText.required = true;
-        otherText.focus();
-      } else if (radio.checked) {
-        otherText.disabled = true;
-        otherText.required = false;
-        otherText.value = "";
-      }
+radios.forEach(radio => {
+    radio.addEventListener('change', function () {
+        if (this.value === 'others') {
+            otherInput.disabled = false;
+            otherInput.required = true;
+            otherInput.focus();
+        } else {
+            otherInput.disabled = true;
+            otherInput.required = false;
+            otherInput.value = '';
+        }
     });
-  });
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const checkbox = document.getElementById("sameAddress");
-  const addressDiv = document.getElementById("addressDiv");
-  const addressInput = document.getElementById("address");
-  const pobInput = document.getElementById("pob");
+document.getElementById('sameAddress').addEventListener('change', function () {
+    const addressDiv = document.getElementById('addressDiv');
+    const pob = document.getElementById('pob');
+    const address = document.getElementById('address');
 
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked) {
-      // Hide Home Address
-      addressDiv.style.display = "none";
-
-      // Disable to prevent submission
-      addressInput.disabled = true;
-      addressInput.value = "";
+    if (this.checked) {
+        address.value = pob.value;      // copy value
+        addressDiv.style.display = 'none';
+        address.removeAttribute('required');
     } else {
-      // Show Home Address
-      addressDiv.style.display = "block";
-      addressInput.disabled = false;
+        addressDiv.style.display = 'block';
+        address.value = '';
+        address.setAttribute('required', 'required');
     }
-  });
 });
 
 

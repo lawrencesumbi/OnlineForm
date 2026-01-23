@@ -12,7 +12,6 @@ function post($key) {
 }
 
 
-
 $sss_number     =   $_POST['sss_number'];
 $name           =   $_POST['name'];
 $name_dob       =   $_POST['name_dob'];
@@ -21,8 +20,8 @@ $civil_status   =   $_POST['cs'];
 $tin_number     =   $_POST['tin'];
 $nationality    =   $_POST['nationality'];
 $religion       =   $_POST['religion'];
-$place_of_birth =   $_POST['pob'];
-$home_address   =   $_POST['address'];
+$place_of_birth =    $_POST['pob'] ?? NULL;
+$home_address   =   $_POST['address'] ?? NULL;
 $zip_code       =   $_POST['zip'];
 $mobile_number  =   $_POST['mobile'];
 $email_address  =   $_POST['email'];
@@ -53,7 +52,7 @@ $date_started           =   $_POST['year_start'];
 $self_earnings          =   $_POST['self_earn'];
 $foreign_address        =   $_POST['for_add'];
 $ofw_earnings           =   $_POST['ofw_earnings'];
-$membership             =   $_POST['membership'];
+$membership             =   $_POST['membership'] ?? NULL;
 $reference              =   $_POST['reference'];
 $spouse_income          =   $_POST['spouse_income'];
 $agreement              =   $_POST['agreement'];
@@ -71,13 +70,28 @@ $monthly_contribution   =   $_POST['monthly_contribution'];
 $start_payment          =   $_POST['start_payment'];
 $working_spouse         =   $_POST['working_spouse'];
 $approved_msc           =   $_POST['approved_msc'];
-$flexi_fund             =   $_POST['flexi_fund'];
+$flexi_fund             =   $_POST['flexi_fund'] ?? NULL;
 $received_signature     =   $_POST['received_signature'];
 $received_date          =   $_POST['received_date'];
 $processed_signature    =   $_POST['processed_signature'];
 $processed_date         =   $_POST['processed_date'];
 $reviewed_signature     =   $_POST['reviewed_signature'];
 $reviewed_date          =   $_POST['reviewed_date'];
+
+
+if (isset($_POST['same_address'])) {
+    $home_address = $place_of_birth;
+}
+
+
+$civil_status = $_POST['cs'] ?? NULL;
+$cs_other     = trim($_POST['cs_other'] ?? '');
+
+// If "others" is selected, use the text input value
+if ($civil_status === 'others' && $cs_other !== '') {
+    $civil_status = $cs_other;
+}
+
 
 
 
@@ -204,28 +218,7 @@ $stmt5->execute([
 
 
 
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2026 at 11:55 AM
+-- Generation Time: Jan 23, 2026 at 04:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,13 @@ INSERT INTO `certification` (`id`, `personal_data_id`, `printed_name`, `cert_sig
 (2, 12, '', '', '0000-00-00', '', ''),
 (3, 13, '', '', '0000-00-00', '', ''),
 (4, 14, '', '', '0000-00-00', '', ''),
-(5, 16, '', '', '0000-00-00', '', '');
+(5, 16, '', '', '0000-00-00', '', ''),
+(6, 17, '', '', '0000-00-00', '', ''),
+(7, 18, '', '', '0000-00-00', '', ''),
+(8, 19, '', '', '0000-00-00', '', ''),
+(9, 20, '', '', '0000-00-00', '', ''),
+(10, 21, '', '', '0000-00-00', '', ''),
+(11, 22, '', '', '0000-00-00', '', '');
 
 -- --------------------------------------------------------
 
@@ -80,7 +86,13 @@ INSERT INTO `dependents` (`id`, `personal_data_id`, `spouse`, `spouse_dob`, `chi
 (11, 13, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (12, 14, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (13, 15, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(14, 16, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]');
+(14, 16, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(15, 17, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(16, 18, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(17, 19, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(18, 20, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(19, 21, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(20, 22, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]');
 
 -- --------------------------------------------------------
 
@@ -96,7 +108,7 @@ CREATE TABLE `filled_sss` (
   `start_payment` date NOT NULL,
   `working_spouse` text NOT NULL,
   `approved_msc` varchar(15) NOT NULL,
-  `flexi_fund` text NOT NULL,
+  `flexi_fund` text DEFAULT NULL,
   `received_signature` varchar(100) NOT NULL,
   `received_date` date NOT NULL,
   `processed_signature` varchar(100) NOT NULL,
@@ -111,7 +123,13 @@ CREATE TABLE `filled_sss` (
 
 INSERT INTO `filled_sss` (`id`, `personal_data_id`, `business_code`, `monthly_contribution`, `start_payment`, `working_spouse`, `approved_msc`, `flexi_fund`, `received_signature`, `received_date`, `processed_signature`, `processed_date`, `reviewed_signature`, `reviewed_date`) VALUES
 (1, 14, 'IT3A', '1,000.00', '2026-01-23', '1,000.00', '500.00', 'approved', 'Signed', '2026-01-23', 'Signed', '2026-01-23', 'Signed', '2026-01-23'),
-(2, 16, 'IT3A', '1,000.00', '2026-01-23', '1,000.00', '500.00', 'approved', 'Signed', '2026-01-23', 'Signed', '2026-01-23', 'Signed', '2026-01-23');
+(2, 16, 'IT3A', '1,000.00', '2026-01-23', '1,000.00', '500.00', 'approved', 'Signed', '2026-01-23', 'Signed', '2026-01-23', 'Signed', '2026-01-23'),
+(3, 17, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
+(4, 18, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
+(5, 19, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
+(6, 20, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
+(7, 21, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
+(8, 22, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -153,7 +171,13 @@ INSERT INTO `personal_data` (`id`, `sss_number`, `name`, `name_dob`, `sex`, `civ
 (13, '', 'Parba, Bryll Josh Delabrino', '2026-01-23', 'male', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'bryll@gmail.com', '', 'Parba, Bobby Delabrino', 'Delabrino, Alma'),
 (14, '', 'Obaob, King James Largo', '2026-01-23', 'male', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'king@gmail.com', '', 'Obaob, Eutiquio Alfeche', 'Obaob, Nerissa '),
 (15, '', 'Obaob, Emman Largo', '2026-01-23', 'male', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'emman@gmail.com', '', 'Obaob, Eutiquio Alfeche', 'Largo, Nerissa Ravina'),
-(16, '', 'Obaob, Lenzey Largo', '2026-01-23', 'female', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'lenzey@gmail.com', '', 'Obaob, Eutiquio Alfeche', 'Largo, Nerissa Ravina');
+(16, '', 'Obaob, Lenzey Largo', '2026-01-23', 'female', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'lenzey@gmail.com', '', 'Obaob, Eutiquio Alfeche', 'Largo, Nerissa Ravina'),
+(17, '', 'sample1', '2026-01-23', 'male', 'others', '', 'Filipino', '', 'Sample1', 'sample01', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
+(18, '', 'sample2', '2012-12-12', 'male', 'single', '', 'Filipino', '', 'Bogo City', 'Bogo City', '', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
+(19, '', 'Sample3', '2021-12-12', 'male', 'single', '', 'Filipino', '', 'Minglanilla', 'Minglanilla', '', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
+(20, '', 'Sample 4', '2025-12-12', 'male', 'single', '', 'Filipino', '', 'Minglanilla', 'Naga', '', '09123456789', 'guiansumbi@gmail.com', '', '', ''),
+(21, '', 'Sample 5', '2026-01-23', 'male', 'others', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
+(22, '', 'Sample 6', '2026-01-23', 'male', 'hello', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -169,7 +193,7 @@ CREATE TABLE `work` (
   `self_earnings` text NOT NULL,
   `foreign_address` varchar(255) NOT NULL,
   `ofw_earnings` text NOT NULL,
-  `membership` varchar(100) NOT NULL,
+  `membership` varchar(100) DEFAULT NULL,
   `reference` varchar(150) NOT NULL,
   `spouse_income` text NOT NULL,
   `agreement` text NOT NULL
@@ -185,7 +209,13 @@ INSERT INTO `work` (`id`, `personal_data_id`, `profession_business`, `date_start
 (3, 12, '', '0000-00-00', '', '', '', '', '', '', ''),
 (4, 13, '', '0000-00-00', '', '', '', 'no', '', '', ''),
 (5, 14, '', '0000-00-00', '', '', '', '', '', '', ''),
-(6, 16, '', '0000-00-00', '', '', '', 'no', '', '', '');
+(6, 16, '', '0000-00-00', '', '', '', 'no', '', '', ''),
+(7, 17, '', '0000-00-00', '', '', '', NULL, '', '', ''),
+(8, 18, '', '0000-00-00', '', '', '', NULL, '', '', ''),
+(9, 19, '', '0000-00-00', '', '', '', NULL, '', '', ''),
+(10, 20, '', '0000-00-00', '', '', '', NULL, '', '', ''),
+(11, 21, '', '0000-00-00', '', '', '', NULL, '', '', ''),
+(12, 22, '', '0000-00-00', '', '', '', NULL, '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -233,31 +263,31 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `certification`
 --
 ALTER TABLE `certification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `dependents`
 --
 ALTER TABLE `dependents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `filled_sss`
 --
 ALTER TABLE `filled_sss`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `personal_data`
 --
 ALTER TABLE `personal_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

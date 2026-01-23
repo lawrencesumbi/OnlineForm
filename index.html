@@ -50,7 +50,7 @@
             </div>
 
             <div class="dob-div">
-                <div class="name">Date of Birth: (MMDDYYYY)</div>
+                <div class="name">Date of Birth:</div>
                 <div class="input-div">
                     <input type="date" name="name_dob" placeholder="Your answer" required>
                 </div>
@@ -61,7 +61,7 @@
             <div class="sex-div">
                 <div class="name">Sex:</div>
                 <div class="sexinput-div">
-                    <input type="radio" name="sex" value="male">Male
+                    <input type="radio" name="sex" value="male" required>Male
                     <input type="radio" name="sex" value="female">Female
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <div class="name">Civil Status:</div>
                 <div class="csinput-div">
                     <div class="radioinput-div">
-                        <input type="radio" name="cs" value="single">Single
+                        <input type="radio" name="cs" value="single" required>Single
                         <input type="radio" name="cs" value="married">Married
                         <input type="radio" name="cs" value="widowed">Widowed
                         <input type="radio" name="cs" value="legally separated">Legally Separated
@@ -108,7 +108,7 @@
                         <input type="text" name="pob" id="pob" placeholder="(City/Municipality, Province)   (City, Country, if born outside the Philippines)" required>
                     </div>
                     <div class="checkinput-div">
-                        <input type="checkbox" id="sameAddress">The same with Home Address
+                        <input type="checkbox" id="sameAddress" name="same_address">The same with Home Address
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@
                 </div>
             </div>
             <div class="spousedob-div">
-                <div class="name">Date of Birth: (MMDDYYYY)</div>
+                <div class="name">Date of Birth:</div>
                 <div class="input-div">
                     <input type="date" name="spouse_dob" placeholder="Your answer">
                 </div>
@@ -195,7 +195,7 @@
                 </div>
             </div>
             <div class="childdob-div">
-                <div class="name">Date of Birth: (MMDDYYYY)</div>
+                <div class="name">Date of Birth:</div>
                 <div class="input-div">
                     <input type="date" name="children_dob[]" placeholder="Your answer">
                 </div>
@@ -242,7 +242,7 @@
                 </div>
             </div>
             <div class="benefdob-div">
-                <div class="name">Date of Birth: (MMDDYYYY)</div>
+                <div class="name">Date of Birth:</div>
                 <div class="input-div">
                     <input type="date" name="benef_dob[]" placeholder="Your answer">
                 </div>

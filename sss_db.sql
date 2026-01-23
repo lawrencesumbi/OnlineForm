@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2026 at 04:28 PM
+-- Generation Time: Jan 23, 2026 at 06:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,7 +52,10 @@ INSERT INTO `certification` (`id`, `personal_data_id`, `printed_name`, `cert_sig
 (8, 19, '', '', '0000-00-00', '', ''),
 (9, 20, '', '', '0000-00-00', '', ''),
 (10, 21, '', '', '0000-00-00', '', ''),
-(11, 22, '', '', '0000-00-00', '', '');
+(11, 22, '', '', '0000-00-00', '', ''),
+(12, 23, '', '', '0000-00-00', '', ''),
+(13, 24, '', '', '0000-00-00', '', ''),
+(14, 25, '', '', '0000-00-00', '', '');
 
 -- --------------------------------------------------------
 
@@ -92,7 +95,10 @@ INSERT INTO `dependents` (`id`, `personal_data_id`, `spouse`, `spouse_dob`, `chi
 (17, 19, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (18, 20, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (19, 21, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(20, 22, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]');
+(20, 22, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(21, 23, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(22, 24, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
+(23, 25, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]');
 
 -- --------------------------------------------------------
 
@@ -129,7 +135,10 @@ INSERT INTO `filled_sss` (`id`, `personal_data_id`, `business_code`, `monthly_co
 (5, 19, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
 (6, 20, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
 (7, 21, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
-(8, 22, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00');
+(8, 22, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
+(9, 23, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
+(10, 24, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
+(11, 25, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -144,7 +153,7 @@ CREATE TABLE `personal_data` (
   `name_dob` date NOT NULL,
   `sex` varchar(10) NOT NULL,
   `civil_status` varchar(20) NOT NULL,
-  `tin_number` varchar(15) NOT NULL,
+  `tin_number` varchar(20) NOT NULL,
   `nationality` varchar(50) NOT NULL,
   `religion` varchar(50) NOT NULL,
   `place_of_birth` varchar(150) NOT NULL,
@@ -177,7 +186,10 @@ INSERT INTO `personal_data` (`id`, `sss_number`, `name`, `name_dob`, `sex`, `civ
 (19, '', 'Sample3', '2021-12-12', 'male', 'single', '', 'Filipino', '', 'Minglanilla', 'Minglanilla', '', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
 (20, '', 'Sample 4', '2025-12-12', 'male', 'single', '', 'Filipino', '', 'Minglanilla', 'Naga', '', '09123456789', 'guiansumbi@gmail.com', '', '', ''),
 (21, '', 'Sample 5', '2026-01-23', 'male', 'others', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
-(22, '', 'Sample 6', '2026-01-23', 'male', 'hello', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', '');
+(22, '', 'Sample 6', '2026-01-23', 'male', 'hello', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
+(23, '12-3456789-9', 'Sample11', '2026-01-24', 'male', 'single', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
+(24, '12-3456789-9', 'Sample11', '2026-01-24', 'male', 'single', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
+(25, '', 'Sample12', '2026-01-24', 'male', 'single', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '09058557409', 'xample@gmail.com', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -215,7 +227,10 @@ INSERT INTO `work` (`id`, `personal_data_id`, `profession_business`, `date_start
 (9, 19, '', '0000-00-00', '', '', '', NULL, '', '', ''),
 (10, 20, '', '0000-00-00', '', '', '', NULL, '', '', ''),
 (11, 21, '', '0000-00-00', '', '', '', NULL, '', '', ''),
-(12, 22, '', '0000-00-00', '', '', '', NULL, '', '', '');
+(12, 22, '', '0000-00-00', '', '', '', NULL, '', '', ''),
+(13, 23, '', '0000-00-00', '', '', '', NULL, '', '', ''),
+(14, 24, '', '0000-00-00', '', '', '', NULL, '', '', ''),
+(15, 25, '', '0000-00-00', '', '', '', NULL, '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -263,31 +278,31 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `certification`
 --
 ALTER TABLE `certification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `dependents`
 --
 ALTER TABLE `dependents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `filled_sss`
 --
 ALTER TABLE `filled_sss`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `personal_data`
 --
 ALTER TABLE `personal_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

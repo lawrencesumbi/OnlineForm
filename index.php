@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Sumbi's Online Form Conversion</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
         <div class="sss-div">
             <div class="name">SS Number:</div>
             <div class="input-div">
-                <input type="text" name="sss_number" placeholder="00-0000000-0">
+                <input type="text" name="sss_number" id="sss_number" placeholder="00-0000000-0">
             </div>
         </div>
     </div>
@@ -43,14 +43,14 @@
 
         <div class="namedob-div">
             <div class="name-div">
-                <div class="name">Name:</div>
+                <div class="name">Name: <span class="required">*</span></div>
                 <div class="input-div">
                     <input type="text" name="name" placeholder="Lastname,       Firstname       Middlename       Suffix" required>
                 </div>
             </div>
 
             <div class="dob-div">
-                <div class="name">Date of Birth:</div>
+                <div class="name">Date of Birth: <span class="required">*</span></div>
                 <div class="input-div">
                     <input type="date" name="name_dob" placeholder="Your answer" required>
                 </div>
@@ -59,14 +59,14 @@
 
         <div class="sexcstin-div">
             <div class="sex-div">
-                <div class="name">Sex:</div>
+                <div class="name">Sex: <span class="required">*</span></div>
                 <div class="sexinput-div">
                     <input type="radio" name="sex" value="male" required>Male
                     <input type="radio" name="sex" value="female">Female
                 </div>
             </div>
             <div class="cs-div">
-                <div class="name">Civil Status:</div>
+                <div class="name">Civil Status: <span class="required">*</span></div>
                 <div class="csinput-div">
                     <div class="radioinput-div">
                         <input type="radio" name="cs" value="single" required>Single
@@ -83,14 +83,14 @@
             <div class="tin-div">
                 <div class="name">Tax Identification Number (If Any)</div>
                 <div class="input-div">
-                    <input type="text" name="tin" placeholder="000-000-000">
+                    <input type="text" name="tin" id="tin_number" placeholder="000-000-000">
                 </div>
             </div>
         </div>
 
         <div class="natrelpob-div">
             <div class="nationality-div">
-                <div class="name">Nationality:</div>
+                <div class="name">Nationality: <span class="required">*</span></div>
                 <div class="input-div">
                     <input type="text" name="nationality" placeholder="Your Answer" required>
                 </div>
@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div class="pob-div">
-                <div class="name">Place of Birth:</div>
+                <div class="name">Place of Birth: <span class="required">*</span></div>
                 <div class="pobcheck-div">
                     <div class="pobinput-div">
                         <input type="text" name="pob" id="pob" placeholder="(City/Municipality, Province)   (City, Country, if born outside the Philippines)" required>
@@ -116,7 +116,7 @@
 
         <div class="addzip-div">
             <div class="address-div" id="addressDiv">
-                <div class="name">Home Address:</div>
+                <div class="name">Home Address: <span class="required">*</span></div>
                 <div class="input-div">
                     <input type="text" name="address" id="address" placeholder="(Rm./Flr./Unit No. & Bldg. Name) (House/Lot & Blk. No.) (Street Name) (Barangay/District) (City/Municipality) (Province) (Country)" required>
                 </div>
@@ -124,28 +124,28 @@
             <div class="zip-div">
                 <div class="name">ZIP Code:</div>
                 <div class="input-div">
-                    <input type="text" name="zip" placeholder="0000">
+                    <input type="text" id="zip" name="zip" placeholder="0000">
                 </div>
             </div>
         </div>
 
         <div class="contact-div">
             <div class="number-div">
-                <div class="name">Mobile/Cellphone Number:</div>
+                <div class="name">Mobile/Cellphone Number: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="text" name="mobile" placeholder="+63" required>
+                    <input type="text" id="mobile" name="mobile" placeholder="09XXXXXXXXX" required>
                 </div>
             </div>
             <div class="email-div">
-                <div class="name">Email Address:</div>
+                <div class="name">Email Address: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="email" name="email" placeholder="@gmail.com" required>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
                 </div>
             </div>
             <div class="tel-div">
                 <div class="name">Telephone Number:</div>
                 <div class="input-div">
-                    <input type="text" name="tel" placeholder="+63">
+                    <input type="text" id="tel" name="tel" placeholder="09XXXXXXXXX">
                 </div>
             </div>
         </div>
@@ -460,7 +460,7 @@
 
 </form>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>

@@ -239,7 +239,7 @@ $stmt5->execute([
             <p>We have received your information and will process it shortly. Thank you.</p>
         </div>
         <div class="back-div">
-            <a href="index.html"><button type="button">Back to Form</button></a>
+            <a href="index.php"><button type="button">Back to Form</button></a>
         </div>
     </div>
 <style>

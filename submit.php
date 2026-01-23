@@ -13,9 +13,6 @@ function post($key) {
 
 
 
-
-
-
 $sss_number     =   $_POST['sss_number'];
 $name           =   $_POST['name'];
 $name_dob       =   $_POST['name_dob'];
@@ -48,6 +45,18 @@ $children_dob_json  = json_encode($children_dob, JSON_UNESCAPED_UNICODE);
 $beneficiaries_json = json_encode($beneficiaries, JSON_UNESCAPED_UNICODE);
 $relationship_json  = json_encode($relationship, JSON_UNESCAPED_UNICODE);
 $benef_dob_json     = json_encode($benef_dob, JSON_UNESCAPED_UNICODE);
+
+
+
+$profession_business    =   $_POST['prof_bus'];
+$date_started           =   $_POST['year_start'];
+$self_earnings          =   $_POST['self_earn'];
+$foreign_address        =   $_POST['for_add'];
+$ofw_earnings           =   $_POST['ofw_earnings'];
+$membership             =   $_POST['membership'];
+$reference              =   $_POST['reference'];
+$spouse_income          =   $_POST['spouse_income'];
+$agreement              =   $_POST['agreement'];
 
 
 
@@ -85,6 +94,8 @@ $stmt->execute([
 $personal_data_id = $pdo->lastInsertId();
 
 
+
+
 $sql2 = "INSERT INTO dependents
 (personal_data_id, spouse, spouse_dob, children, children_dob, beneficiaries, relationship, benef_dob)
 VALUES
@@ -101,6 +112,34 @@ $stmt2->execute([
     ':relationship'     => $relationship_json,
     ':benef_dob'        => $benef_dob_json
 ]);
+
+
+
+
+
+
+$sql3 = "INSERT INTO work
+(personal_data_id, profession_business, date_started, self_earnings, foreign_address, ofw_earnings, membership, reference, spouse_income, agreement)
+VALUES
+(:personal_data_id, :profession_business, :date_started, :self_earnings, :foreign_address, :ofw_earnings, :membership, :reference, :spouse_income, :agreement)";
+
+$stmt3 = $pdo->prepare($sql3);
+
+$stmt3->execute([
+    ':personal_data_id'    => $personal_data_id,
+    ':profession_business' => $profession_business,
+    ':date_started'        => $date_started,
+    ':self_earnings'       => $self_earnings,
+    ':foreign_address'     => $foreign_address,
+    ':ofw_earnings'        => $ofw_earnings,
+    ':membership'          => $membership,
+    ':reference'           => $reference,
+    ':spouse_income'       => $spouse_income,
+    ':agreement'           => $agreement
+]);
+
+
+
 
 
 ?>

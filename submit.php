@@ -11,109 +11,119 @@ function post($key) {
     return trim($_POST[$key] ?? '');
 }
 
-/* =========================
-   PART I – PERSONAL DATA
-========================= */
-$data = [
-    'sss_number'     => post('sss'),
-    'full_name'      => post('name'),
-    'date_of_birth'  => post('dob'),
-    'sex'            => post('sex'),
-    'civil_status'   => post('cs') === 'others' ? post('cs_other') : post('cs'),
-    'tin'            => post('tin'),
-    'nationality'    => post('nationality'),
-    'religion'       => post('religion'),
-    'place_of_birth' => post('pob'),
-    'home_address'   => post('address'),
-    'zip_code'       => post('zip'),
-    'mobile_number'  => post('number'),
-    'email'          => post('email'),
-    'telephone'      => post('tel'),
-    'father_name'    => post('father'),
-    'mother_name'    => post('mother'),
 
-/* =========================
-   PART II – DEPENDENTS
-========================= */
-    'spouse_name'    => post('spouse'),
-    'spouse_dob'     => post('spousedob'),
-    'children'     => implode(' | ', (array) ($_POST['children'] ?? [])),
-    'children_dob' => implode(' | ', (array) ($_POST['childdob'] ?? [])),
 
-    'beneficiary'    => post('benif'),
-    'beneficiary_rel'=> post('rel'),
-    'beneficiary_dob'=> post('benifdob'),
 
-/* =========================
-   PART III – WORK INFO
-========================= */
-    'profession'     => post('prof_bus'),
-    'year_started'   => post('year_star'),
-    'monthly_se'     => post('monthly_se'),
-    'foreign_address'=> post('foradd'),
-    'monthly_ofw'    => post('monthly_ofw'),
-    'flexi_member'   => post('membership'),
-    'working_ref'    => post('reference'),
-    'monthly_nws'    => post('monthly_nws'),
-    'agreement'      => post('agree'),
 
-/* =========================
-   PART IV – CERTIFICATION
-========================= */
-    'printed_name'   => post('printed'),
-    'signature'      => post('signature'),
-    'signed_date'    => post('date'),
-    'fingerprint'    => post('right'),
 
-/* =========================
-   SSS SECTION
-========================= */
-    'business_code'  => post('bc'),
-    'monthly_contri' => post('monthly_business'),
-    'start_payment'  => post('payment'),
-    'working_msc'    => post('working'),
-    'approved_msc'   => post('approved'),
-    'flexi_status'   => post('flexi')
-];
+$sss_number     =   $_POST['sss_number'];
+$name           =   $_POST['name'];
+$name_dob       =   $_POST['name_dob'];
+$sex            =   $_POST['sex'];
+$civil_status   =   $_POST['cs'];
+$tin_number     =   $_POST['tin'];
+$nationality    =   $_POST['nationality'];
+$religion       =   $_POST['religion'];
+$place_of_birth =   $_POST['pob'];
+$home_address   =   $_POST['address'];
+$zip_code       =   $_POST['zip'];
+$mobile_number  =   $_POST['mobile'];
+$email_address  =   $_POST['email'];
+$tel_number     =   $_POST['tel'];
+$fathers_name   =   $_POST['father'];
+$mothers_name   =   $_POST['mother'];
 
-// BASIC REQUIRED VALIDATION
-if ($data['full_name'] === '' || $data['date_of_birth'] === '' || $data['sex'] === '') {
-    die('Required fields missing.');
-}
 
-/* =========================
-   INSERT QUERY
-========================= */
-$sql = "INSERT INTO sss_members (
-    sss_number, full_name, date_of_birth, sex, civil_status, tin,
-    nationality, religion, place_of_birth, home_address, zip_code,
-    mobile_number, email, telephone, father_name, mother_name,
-    spouse_name, spouse_dob, children, children_dob,
-    beneficiary, beneficiary_rel, beneficiary_dob,
-    profession, year_started, monthly_se,
-    foreign_address, monthly_ofw, flexi_member,
-    working_ref, monthly_nws, agreement,
-    printed_name, signature, signed_date, fingerprint,
-    business_code, monthly_contri, start_payment,
-    working_msc, approved_msc, flexi_status
-) VALUES (
-    :sss_number, :full_name, :date_of_birth, :sex, :civil_status, :tin,
-    :nationality, :religion, :place_of_birth, :home_address, :zip_code,
-    :mobile_number, :email, :telephone, :father_name, :mother_name,
-    :spouse_name, :spouse_dob, :children, :children_dob,
-    :beneficiary, :beneficiary_rel, :beneficiary_dob,
-    :profession, :year_started, :monthly_se,
-    :foreign_address, :monthly_ofw, :flexi_member,
-    :working_ref, :monthly_nws, :agreement,
-    :printed_name, :signature, :signed_date, :fingerprint,
-    :business_code, :monthly_contri, :start_payment,
-    :working_msc, :approved_msc, :flexi_status
-)";
+
+$spouse         =   $_POST['spouse'];
+$spouse_dob     =   $_POST['spouse_dob'];
+$children       =   $_POST['children'] ?? [];
+$children_dob   =   $_POST['children_dob'] ?? [];
+$beneficiaries  =   $_POST['beneficiaries'] ?? [];
+$relationship   =   $_POST['relationship'] ?? [];
+$benef_dob      =   $_POST['benef_dob'] ?? [];
+
+$children_json      = json_encode($children, JSON_UNESCAPED_UNICODE);
+$children_dob_json  = json_encode($children_dob, JSON_UNESCAPED_UNICODE);
+$beneficiaries_json = json_encode($beneficiaries, JSON_UNESCAPED_UNICODE);
+$relationship_json  = json_encode($relationship, JSON_UNESCAPED_UNICODE);
+$benef_dob_json     = json_encode($benef_dob, JSON_UNESCAPED_UNICODE);
+
+
+
+
+
+
+
+
+
+$sql = "INSERT INTO personal_data
+(sss_number, name, name_dob, sex, civil_status, tin_number, nationality, religion, place_of_birth, home_address, zip_code, mobile_number, email_address, tel_number, fathers_name, mothers_name)
+VALUES
+(:sss_number, :name, :name_dob, :sex, :civil_status, :tin_number, :nationality, :religion, :place_of_birth, :home_address, :zip_code, :mobile_number, :email_address, :tel_number, :fathers_name, :mothers_name)";
 
 $stmt = $pdo->prepare($sql);
-$stmt->execute($data);
+$stmt->execute([
+    ':sss_number'     => $sss_number,
+    ':name'           => $name,
+    ':name_dob'       => $name_dob,   
+    ':sex'            => $sex,
+    ':civil_status'   => $civil_status,
+    ':tin_number'     => $tin_number,
+    ':nationality'    => $nationality,
+    ':religion'       => $religion,
+    ':place_of_birth' => $place_of_birth,
+    ':home_address'   => $home_address,
+    ':zip_code'       => $zip_code,
+    ':mobile_number'  => $mobile_number,
+    ':email_address'  => $email_address,
+    ':tel_number'     => $tel_number,
+    ':fathers_name'   => $fathers_name,
+    ':mothers_name'   => $mothers_name
+]);
+
+$personal_data_id = $pdo->lastInsertId();
+
+
+$sql2 = "INSERT INTO dependents
+(personal_data_id, spouse, spouse_dob, children, children_dob, beneficiaries, relationship, benef_dob)
+VALUES
+(:personal_data_id, :spouse, :spouse_dob, :children, :children_dob, :beneficiaries, :relationship, :benef_dob)";
+
+$stmt2 = $pdo->prepare($sql2);
+$stmt2->execute([
+    ':personal_data_id' => $personal_data_id,
+    ':spouse'           => $spouse,
+    ':spouse_dob'       => $spouse_dob,
+    ':children'         => $children_json,
+    ':children_dob'     => $children_dob_json,
+    ':beneficiaries'    => $beneficiaries_json,
+    ':relationship'     => $relationship_json,
+    ':benef_dob'        => $benef_dob_json
+]);
+
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">

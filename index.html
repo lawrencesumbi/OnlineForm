@@ -24,7 +24,7 @@
         <div class="sss-div">
             <div class="name">SS Number:</div>
             <div class="input-div">
-                <input type="text" name="sss" placeholder="00-0000000-0">
+                <input type="text" name="sss_number" placeholder="00-0000000-0">
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
             <div class="dob-div">
                 <div class="name">Date of Birth: (MMDDYYYY)</div>
                 <div class="input-div">
-                    <input type="date" name="dob" placeholder="Your answer" required>
+                    <input type="date" name="name_dob" placeholder="Your answer" required>
                 </div>
             </div>
         </div>
@@ -133,7 +133,7 @@
             <div class="number-div">
                 <div class="name">Mobile/Cellphone Number:</div>
                 <div class="input-div">
-                    <input type="text" name="number" placeholder="+63" required>
+                    <input type="text" name="mobile" placeholder="+63" required>
                 </div>
             </div>
             <div class="email-div">
@@ -182,7 +182,7 @@
             <div class="spousedob-div">
                 <div class="name">Date of Birth: (MMDDYYYY)</div>
                 <div class="input-div">
-                    <input type="date" name="spousedob" placeholder="Your answer">
+                    <input type="date" name="spouse_dob" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -197,7 +197,20 @@
             <div class="childdob-div">
                 <div class="name">Date of Birth: (MMDDYYYY)</div>
                 <div class="input-div">
-                    <input type="date" name="childdob[]" placeholder="Your answer">
+                    <input type="date" name="children_dob[]" placeholder="Your answer">
+                </div>
+            </div> 
+        </div>
+
+        <div class="child-con">
+            <div class="children-div">
+                <div class="input-div">
+                    <input type="text" name="children[]" placeholder="Your Answer">
+                </div>
+            </div>
+            <div class="childdob-div">
+                <div class="input-div">
+                    <input type="date" name="children_dob[]" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -205,25 +218,12 @@
         <div class="child-con">
             <div class="children-div">
                 <div class="input-div">
-                    <input type="text" name="children" placeholder="Your Answer">
+                    <input type="text" name="children[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="childdob-div">
                 <div class="input-div">
-                    <input type="date" name="childdob" placeholder="Your answer">
-                </div>
-            </div>
-        </div>
-
-        <div class="child-con">
-            <div class="children-div">
-                <div class="input-div">
-                    <input type="text" name="children" placeholder="Your Answer">
-                </div>
-            </div>
-            <div class="childdob-div">
-                <div class="input-div">
-                    <input type="date" name="childdob" placeholder="Your answer">
+                    <input type="date" name="children_dob[]" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -232,19 +232,19 @@
             <div class="benif-div">
                 <div class="name">Other Beneficiaries (deceased): (Last Name) (First Name) (Middle Name) (Suffix)</div>
                 <div class="input-div">
-                    <input type="text" name="benif" placeholder="Your Answer">
+                    <input type="text" name="beneficiaries[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="rel-div">
                 <div class="name">Relationship:</div>
                 <div class="input-div">
-                    <input type="text" name="rel" placeholder="Your Answer">
+                    <input type="text" name="relationship[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="benefdob-div">
                 <div class="name">Date of Birth: (MMDDYYYY)</div>
                 <div class="input-div">
-                    <input type="date" name="benifdob" placeholder="Your answer">
+                    <input type="date" name="benef_dob[]" placeholder="Your answer">
                 </div>
             </div>
         </div>
@@ -252,21 +252,21 @@
         <div class="beneficiaries-con">
             <div class="benif-div">
                 <div class="input-div">
-                    <input type="text" name="benef" placeholder="Your Answer">
+                    <input type="text" name="beneficiaries[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="rel-div">
                 <div class="input-div">
-                    <input type="text" name="rel" placeholder="Your Answer">
+                    <input type="text" name="relationship[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="benefdob-div">
                 <div class="input-div">
-                    <input type="date" name="benefdob" placeholder="Your answer">
+                    <input type="date" name="benef_dob[]" placeholder="Your answer">
                 </div>
             </div>
         </div>
-
+        
     </div>
 
         <div class="title-div">

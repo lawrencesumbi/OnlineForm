@@ -6,7 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit('Method Not Allowed');
 }
 
-// Helper function
 function post($key) {
     return trim($_POST[$key] ?? '');
 }
@@ -30,7 +29,6 @@ $fathers_name   =   $_POST['father'];
 $mothers_name   =   $_POST['mother'];
 
 
-
 $spouse         =   $_POST['spouse'];
 $spouse_dob     =   $_POST['spouse_dob'];
 $children       =   $_POST['children'] ?? [];
@@ -44,7 +42,6 @@ $children_dob_json  = json_encode($children_dob, JSON_UNESCAPED_UNICODE);
 $beneficiaries_json = json_encode($beneficiaries, JSON_UNESCAPED_UNICODE);
 $relationship_json  = json_encode($relationship, JSON_UNESCAPED_UNICODE);
 $benef_dob_json     = json_encode($benef_dob, JSON_UNESCAPED_UNICODE);
-
 
 
 $profession_business    =   $_POST['prof_bus'];
@@ -83,18 +80,12 @@ if (isset($_POST['same_address'])) {
     $home_address = $place_of_birth;
 }
 
-
 $civil_status = $_POST['cs'] ?? NULL;
 $cs_other     = trim($_POST['cs_other'] ?? '');
 
-// If "others" is selected, use the text input value
 if ($civil_status === 'others' && $cs_other !== '') {
     $civil_status = $cs_other;
 }
-
-
-
-
 
 
 $sql = "INSERT INTO personal_data
@@ -124,9 +115,6 @@ $stmt->execute([
 
 $personal_data_id = $pdo->lastInsertId();
 
-
-
-
 $sql2 = "INSERT INTO dependents
 (personal_data_id, spouse, spouse_dob, children, children_dob, beneficiaries, relationship, benef_dob)
 VALUES
@@ -145,17 +133,12 @@ $stmt2->execute([
 ]);
 
 
-
-
-
-
 $sql3 = "INSERT INTO work
 (personal_data_id, profession_business, date_started, self_earnings, foreign_address, ofw_earnings, membership, reference, spouse_income, agreement)
 VALUES
 (:personal_data_id, :profession_business, :date_started, :self_earnings, :foreign_address, :ofw_earnings, :membership, :reference, :spouse_income, :agreement)";
 
 $stmt3 = $pdo->prepare($sql3);
-
 $stmt3->execute([
     ':personal_data_id'    => $personal_data_id,
     ':profession_business' => $profession_business,
@@ -170,15 +153,12 @@ $stmt3->execute([
 ]);
 
 
-
-
 $sql4 = "INSERT INTO certification
 (personal_data_id, printed_name, cert_signature, cert_date, right_thumb, right_index)
 VALUES
 (:personal_data_id, :printed_name, :cert_signature, :cert_date, :right_thumb, :right_index)";
 
 $stmt4 = $pdo->prepare($sql4);
-
 $stmt4->execute([
     ':personal_data_id' => $personal_data_id,
     ':printed_name'     => $printed_name,
@@ -189,7 +169,6 @@ $stmt4->execute([
 ]);
 
 
-
 $sql5 = "INSERT INTO filled_sss
 (personal_data_id, business_code, monthly_contribution, start_payment, working_spouse, approved_msc, flexi_fund,
  received_signature, received_date, processed_signature, processed_date, reviewed_signature, reviewed_date)
@@ -197,11 +176,9 @@ VALUES
 (:personal_data_id, :business_code, :monthly_contribution, :start_payment, :working_spouse, :approved_msc, :flexi_fund,
  :received_signature, :received_date, :processed_signature, :processed_date, :reviewed_signature, :reviewed_date)";
 
-
 $stmt5 = $pdo->prepare($sql5);
-
 $stmt5->execute([
-    ':personal_data_id'      => $personal_data_id,  // from lastInsertId()
+    ':personal_data_id'      => $personal_data_id,
     ':business_code'         => $business_code,
     ':monthly_contribution'  => $monthly_contribution,
     ':start_payment'         => $start_payment,
@@ -216,11 +193,7 @@ $stmt5->execute([
     ':reviewed_date'         => $reviewed_date
 ]);
 
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">

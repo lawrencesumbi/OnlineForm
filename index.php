@@ -145,7 +145,7 @@
             <div class="tel-div">
                 <div class="name">Telephone Number:</div>
                 <div class="input-div">
-                    <input type="text" id="tel" name="tel" placeholder="032 000 0000">
+                    <input type="text" id="tel" name="tel" placeholder="032 255 1234">
                 </div>
             </div>
         </div>
@@ -287,7 +287,7 @@
                 </div>
                 <div class="sub-name">Monthly Earnings</div>
                 <div class="input-div">
-                    <input type="text" name="self_earn" placeholder="P">
+                    <input type="text" class="money" name="self_earn" placeholder="P">
                 </div>
         </div>
 
@@ -299,7 +299,7 @@
                 </div>
                 <div class="sub-name">Monthly Earnings</div>
                 <div class="input-div">
-                    <input type="text" name="ofw_earnings" placeholder="$">
+                    <input type="text" class="money" name="ofw_earnings" placeholder="P">
                 </div>
                 <div class="sub-name">Are you applying for membership in the Flexi-Fund Program?</div>
                 <div class="memberinput-div">
@@ -312,11 +312,11 @@
             <div class="name">Non-Working Spouse (NWS)</div>
                 <div class="sub-name">SS No./Common Reference No. of Working Spouse</div>
                 <div class="input-div">
-                    <input type="text" name="reference" placeholder="Your Answer">
+                    <input type="text" id="crn_number" name="reference" placeholder="000000000000">
                 </div>
                 <div class="sub-name">Monthly Income of Working Spouse</div>
                 <div class="input-div">
-                    <input type="text" name="spouse_income" placeholder="P">
+                    <input type="text" class="money" name="spouse_income" placeholder="P">
                 </div>
                 <div class="sub-name">I agree with my spouse membership with SSS.</div>
                 <div class="input-div">
@@ -374,7 +374,7 @@
                 </div>
                 <div class="name">Monthly Contribution (SE/OFW/NWS)</div>
                 <div class="input-div">
-                    <input type="text" name="monthly_contribution" placeholder="Your Answer">
+                    <input type="text" class="money" name="monthly_contribution" placeholder="P">
                 </div>
                 <div class="name">Start of Payment (For SE/NWS)</div>
                 <div class="input-div">
@@ -384,11 +384,11 @@
             <div class="subright-con">
                 <div class="name">Working Spouse's MSC (For NWS)</div>
                 <div class="input-div">
-                    <input type="text" name="working_spouse" placeholder="Your Answer">
+                    <input type="text" class="money" name="working_spouse" placeholder="P">
                 </div>
                 <div class="name">Approved MSC (For SE/OFW/NWS)</div>
                 <div class="input-div">
-                    <input type="text" name="approved_msc" placeholder="Your Answer">
+                    <input type="text" class="money" name="approved_msc" placeholder="P">
                 </div>
                 <div class="name">Flexi-Fund Application (For OFW)</div>
                 <div class="approvedinput-div">

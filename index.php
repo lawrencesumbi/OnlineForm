@@ -45,7 +45,7 @@
             <div class="name-div">
                 <div class="name">Name: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="text" name="name" placeholder="Lastname,       Firstname       Middlename       Suffix" required>
+                    <input type="text" class="fullname" name="name" placeholder="Lastname,       Firstname       Middlename       Suffix" required>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@
             <div class="tel-div">
                 <div class="name">Telephone Number:</div>
                 <div class="input-div">
-                    <input type="text" id="tel" name="tel" placeholder="09XXXXXXXXX">
+                    <input type="text" id="tel" name="tel" placeholder="032 000 0000">
                 </div>
             </div>
         </div>
@@ -153,14 +153,14 @@
         <div class="father-div">
             <div class="name">Father's Name:</div>
             <div class="input-div">
-                <input type="text" name="father" placeholder="Lastname,       Firstname       Middlename       Suffix">
+                <input type="text" class="fullname" name="father" placeholder="Lastname,       Firstname       Middlename       Suffix">
             </div>
         </div>
 
         <div class="mother-div">
             <div class="name">Mother's Maiden Name:</div>
             <div class="input-div">
-                <input type="text" name="mother" placeholder="Lastname,       Firstname       Middlename       Suffix">
+                <input type="text" class="fullname" name="mother" placeholder="Lastname,       Firstname       Middlename       Suffix">
             </div>
         </div>
 
@@ -176,7 +176,7 @@
             <div class="spouse-div">
                 <div class="name">Spouse: (Last Name) (First Name) (Middle Name) (Suffix)</div>
                 <div class="input-div">
-                    <input type="text" name="spouse" placeholder="Your Answer">
+                    <input type="text" class="fullname" name="spouse" placeholder="Your Answer">
                 </div>
             </div>
             <div class="spousedob-div">
@@ -191,7 +191,7 @@
             <div class="children-div">
                 <div class="name">Child/ren: (Last Name) (First Name) (Middle Name) (Suffix)</div>
                 <div class="input-div">
-                    <input type="text" name="children[]" placeholder="Your Answer">
+                    <input type="text" class="fullname" name="children[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="childdob-div">
@@ -205,7 +205,7 @@
         <div class="child-con">
             <div class="children-div">
                 <div class="input-div">
-                    <input type="text" name="children[]" placeholder="Your Answer">
+                    <input type="text" class="fullname" name="children[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="childdob-div">
@@ -218,7 +218,7 @@
         <div class="child-con">
             <div class="children-div">
                 <div class="input-div">
-                    <input type="text" name="children[]" placeholder="Your Answer">
+                    <input type="text" class="fullname" name="children[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="childdob-div">
@@ -232,7 +232,7 @@
             <div class="benif-div">
                 <div class="name">Other Beneficiaries (deceased): (Last Name) (First Name) (Middle Name) (Suffix)</div>
                 <div class="input-div">
-                    <input type="text" name="beneficiaries[]" placeholder="Your Answer">
+                    <input type="text" class="fullname" name="beneficiaries[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="rel-div">
@@ -252,7 +252,7 @@
         <div class="beneficiaries-con">
             <div class="benif-div">
                 <div class="input-div">
-                    <input type="text" name="beneficiaries[]" placeholder="Your Answer">
+                    <input type="text" class="fullname" name="beneficiaries[]" placeholder="Your Answer">
                 </div>
             </div>
             <div class="rel-div">

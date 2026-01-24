@@ -121,25 +121,26 @@ mobileInput.addEventListener('input', function() {
 
 
 
-// FOR TELEPHONE NUMBER VALIDATION
+// FOR TELEPHONE NUMBER VALIDATION (CEBU)
 
 const telInput = document.getElementById('tel');
 
-telInput.addEventListener('input', function() {
+telInput.addEventListener('input', function () {
     let value = this.value;
 
-    // Remove any non-digit characters
+    // Remove non-digit characters
     value = value.replace(/\D/g, '');
 
-    // Limit to 11 digits (09XXXXXXXXX)
-    value = value.substring(0, 11);
+    // Limit to 10 digits: 032NNNNNNN
+    value = value.substring(0, 10);
 
     this.value = value;
 });
 
 
 
-// FOR EMAIL ADD VALIDATION
+
+// FOR EMAIL ADDRESS VALIDATION
 
 const emailInput = document.getElementById('email');
 
@@ -163,3 +164,22 @@ function validateEmail() {
     }
     return true;
 }
+
+
+// FOR NAME VALIDATION (CLASS VERSION)
+
+const nameInputs = document.querySelectorAll('.fullname');
+
+nameInputs.forEach(input => {
+    input.addEventListener('input', function () {
+        // Allow letters, spaces, comma, dot, and hyphen only
+        this.value = this.value.replace(/[^a-zA-Z\s,.-]/g, '');
+
+        // Prevent multiple spaces
+        this.value = this.value.replace(/\s{2,}/g, ' ');
+    });
+});
+
+
+
+

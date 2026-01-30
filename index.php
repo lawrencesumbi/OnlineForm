@@ -64,6 +64,12 @@ if (isset($_GET['id'])) {
         <input type="hidden" name="id" value="<?= $id ?>">
     <?php endif; ?>
 
+    <?php
+        $cs = $data['civil_status'] ?? '';
+        $standard_cs = ['single', 'married', 'widowed', 'legally separated'];
+        $isOther = !in_array(strtolower($cs), $standard_cs);
+    ?>
+
 <div class="bondpaper">
 
     <div class="header-div">
@@ -106,7 +112,7 @@ if (isset($_GET['id'])) {
             <div class="dob-div">
                 <div class="name">Date of Birth: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="date" name="name_dob" placeholder="Your answer" required>
+                    <input type="date" name="name_dob" placeholder="Your answer" value="<?= $data['name_dob'] ?? '' ?>" required>
                 </div>
             </div>
         </div>
@@ -115,22 +121,22 @@ if (isset($_GET['id'])) {
             <div class="sex-div">
                 <div class="name">Sex: <span class="required">*</span></div>
                 <div class="sexinput-div">
-                    <input type="radio" name="sex" value="male" required>Male
-                    <input type="radio" name="sex" value="female">Female
+                    <input type="radio" name="sex" value="male" required <?= ($data['sex'] ?? '') === 'male' ? 'checked' : '' ?>>Male
+                    <input type="radio" name="sex" value="female" <?= ($data['sex'] ?? '') === 'female' ? 'checked' : '' ?>>Female
                 </div>
             </div>
             <div class="cs-div">
                 <div class="name">Civil Status: <span class="required">*</span></div>
                 <div class="csinput-div">
                     <div class="radioinput-div">
-                        <input type="radio" name="cs" value="single" required>Single
-                        <input type="radio" name="cs" value="married">Married
-                        <input type="radio" name="cs" value="widowed">Widowed
-                        <input type="radio" name="cs" value="legally separated">Legally Separated
-                        <input type="radio" name="cs" value="others">Others
+                        <input type="radio" name="cs" value="single" required <?= ($data['civil_status'] ?? '') === 'single' ? 'checked' : '' ?>>Single
+                        <input type="radio" name="cs" value="married" <?= ($data['civil_status'] ?? '') === 'married' ? 'checked' : '' ?>>Married
+                        <input type="radio" name="cs" value="widowed" <?= ($data['civil_status'] ?? '') === 'widowed' ? 'checked' : '' ?>>Widowed
+                        <input type="radio" name="cs" value="legally separated" <?= ($data['civil_status'] ?? '') === 'legally separated' ? 'checked' : '' ?>>Legally Separated
+                        <input type="radio" name="cs" value="others" <?= $isOther ? 'checked' : '' ?>>Others
                     </div>
                     <div class="textinput-div">
-                        <input type="text" id="otherText" name="cs_other" placeholder="Your Answer" value="<?= htmlspecialchars($data['civil_status'] ?? '') ?>" disabled>
+                        <input type="text" id="otherText" name="cs_other" placeholder="Your Answer" value="<?= $isOther ? htmlspecialchars($cs) : '' ?>" <?= $isOther ? '' : 'disabled' ?>>
                     </div>
                 </div>
             </div>
@@ -228,98 +234,58 @@ if (isset($_GET['id'])) {
 
         <div class="spouse-con">
             <div class="spouse-div">
-                <div class="name">Spouse: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+                <div class="name">Spouse's Name:</div>
                 <div class="input-div">
-                    <input type="text" class="fullname" name="spouse" placeholder="Your Answer" value="<?= htmlspecialchars($data['spouse'] ?? '') ?>">
+                    <input type="text" class="fullname" name="spouse" placeholder="Lastname,       Firstname       Middlename       Suffix" value="<?= htmlspecialchars($data['spouse'] ?? '') ?>">
                 </div>
             </div>
             <div class="spousedob-div">
                 <div class="name">Date of Birth:</div>
                 <div class="input-div">
-                    <input type="date" name="spouse_dob" placeholder="Your answer">
+                    <input type="date" name="spouse_dob" placeholder="Your answer" value="<?= $data['spouse_dob'] ?? '' ?>">
                 </div>
             </div>
         </div>
 
+        <?php for ($i = 0; $i < 3; $i++): ?>
         <div class="child-con">
             <div class="children-div">
-                <div class="name">Child/ren: (Last Name) (First Name) (Middle Name) (Suffix)</div>
+                <div class="name">Child's Name:</div>
                 <div class="input-div">
-                    <input type="text" class="fullname" name="children[]" placeholder="Your Answer">
+                    <input type="text" class="fullname" name="children[]" placeholder="Lastname,       Firstname       Middlename       Suffix" value="<?= htmlspecialchars($children[$i] ?? '') ?>">
                 </div>
             </div>
             <div class="childdob-div">
                 <div class="name">Date of Birth:</div>
                 <div class="input-div">
-                    <input type="date" name="children_dob[]" placeholder="Your answer">
+                    <input type="date" name="children_dob[]" placeholder="Your answer" value="<?= $children_dob[$i] ?? '' ?>">
                 </div>
             </div> 
         </div>
-
-        <div class="child-con">
-            <div class="children-div">
-                <div class="input-div">
-                    <input type="text" class="fullname" name="children[]" placeholder="Your Answer">
+        <?php endfor; ?>
+        
+        <?php for ($i = 0; $i < 2; $i++): ?>
+            <div class="beneficiaries-con">
+                <div class="benif-div">
+                    <div class="name">Other Beneficiaries (deceased):</div>
+                    <div class="input-div">
+                        <input type="text" class="fullname" name="beneficiaries[]" placeholder="Lastname,       Firstname       Middlename       Suffix" value="<?= htmlspecialchars($beneficiaries[$i] ?? '') ?>">
+                    </div>
+                </div>
+                <div class="rel-div">
+                    <div class="name">Relationship:</div>
+                    <div class="input-div">
+                        <input type="text" name="relationship[]" placeholder="Your Answer" value="<?= htmlspecialchars($relationship[$i] ?? '') ?>">
+                    </div>
+                </div>
+                <div class="benefdob-div">
+                    <div class="name">Date of Birth:</div>
+                    <div class="input-div">
+                        <input type="date" name="benef_dob[]" placeholder="Your answer" value="<?= $benef_dob[$i] ?? '' ?>">
+                    </div>
                 </div>
             </div>
-            <div class="childdob-div">
-                <div class="input-div">
-                    <input type="date" name="children_dob[]" placeholder="Your answer">
-                </div>
-            </div>
-        </div>
-
-        <div class="child-con">
-            <div class="children-div">
-                <div class="input-div">
-                    <input type="text" class="fullname" name="children[]" placeholder="Your Answer">
-                </div>
-            </div>
-            <div class="childdob-div">
-                <div class="input-div">
-                    <input type="date" name="children_dob[]" placeholder="Your answer">
-                </div>
-            </div>
-        </div>
-
-        <div class="beneficiaries-con">
-            <div class="benif-div">
-                <div class="name">Other Beneficiaries (deceased): (Last Name) (First Name) (Middle Name) (Suffix)</div>
-                <div class="input-div">
-                    <input type="text" class="fullname" name="beneficiaries[]" placeholder="Your Answer">
-                </div>
-            </div>
-            <div class="rel-div">
-                <div class="name">Relationship:</div>
-                <div class="input-div">
-                    <input type="text" name="relationship[]" placeholder="Your Answer">
-                </div>
-            </div>
-            <div class="benefdob-div">
-                <div class="name">Date of Birth:</div>
-                <div class="input-div">
-                    <input type="date" name="benef_dob[]" placeholder="Your answer">
-                </div>
-            </div>
-        </div>
-
-        <div class="beneficiaries-con">
-            <div class="benif-div">
-                <div class="input-div">
-                    <input type="text" class="fullname" name="beneficiaries[]" placeholder="Your Answer">
-                </div>
-            </div>
-            <div class="rel-div">
-                <div class="input-div">
-                    <input type="text" name="relationship[]" placeholder="Your Answer">
-                </div>
-            </div>
-            <div class="benefdob-div">
-                <div class="input-div">
-                    <input type="date" name="benef_dob[]" placeholder="Your answer">
-                </div>
-            </div>
-        </div>
+        <?php endfor; ?>
         
     </div>
 
@@ -337,7 +303,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="sub-name">Year Prof./Business Started</div>
                 <div class="input-div">
-                    <input type="date" name="year_start" placeholder="Your Answer">
+                    <input type="date" name="year_start" placeholder="Your Answer" value="<?= $data['date_started'] ?? '' ?>">
                 </div>
                 <div class="sub-name">Monthly Earnings</div>
                 <div class="input-div">
@@ -357,8 +323,8 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="sub-name">Are you applying for membership in the Flexi-Fund Program?</div>
                 <div class="memberinput-div">
-                    <input type="radio" name="membership" value="yes">Yes
-                    <input type="radio" name="membership" value="no">No
+                    <input type="radio" name="membership" value="yes" <?= ($data['membership'] ?? '') === 'yes' ? 'checked' : '' ?>>Yes
+                    <input type="radio" name="membership" value="no" <?= ($data['membership'] ?? '') === 'no' ? 'checked' : '' ?>>No
                 </div>
         </div>
 
@@ -400,7 +366,7 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="subsign-div">
                         <div class="input-div">
-                            <input type="date" name="cert_date" placeholder="Date">
+                            <input type="date" name="cert_date" placeholder="Date" value="<?= $data['cert_date'] ?? '' ?>">
                         </div>
                     </div>
                 </div>
@@ -432,7 +398,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="name">Start of Payment (For SE/NWS)</div>
                 <div class="input-div">
-                    <input type="date" name="start_payment" placeholder="Your Answer">
+                    <input type="date" name="start_payment" placeholder="Your Answer" value="<?= $data['start_payment'] ?? '' ?>">
                 </div>
             </div>
             <div class="subright-con">
@@ -446,8 +412,8 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="name">Flexi-Fund Application (For OFW)</div>
                 <div class="approvedinput-div">
-                    <input type="radio" name="flexi_fund" value="approved">Approved
-                    <input type="radio" name="flexi_fund" value="disapproved">Disapproved
+                    <input type="radio" name="flexi_fund" value="approved" <?= ($data['flexi_fund'] ?? '') === 'approved' ? 'checked' : '' ?>>Approved
+                    <input type="radio" name="flexi_fund" value="disapproved" <?= ($data['flexi_fund'] ?? '') === 'disappproved' ? 'checked' : '' ?>>Disapproved
                 </div>
             </div>
 
@@ -465,7 +431,7 @@ if (isset($_GET['id'])) {
                         </div>
                         <div class="subsign-div">
                             <div class="input-div">
-                                <input type="date" name="received_date" placeholder="Date & Time">
+                                <input type="date" name="received_date" placeholder="Date & Time" value="<?= $data['received_date'] ?? '' ?>">
                             </div>
                         </div>
                     </div>
@@ -480,7 +446,7 @@ if (isset($_GET['id'])) {
                         </div>
                         <div class="subsign-div">
                             <div class="input-div">
-                                <input type="date" name="processed_date" placeholder="Date & Time">
+                                <input type="date" name="processed_date" placeholder="Date & Time" value="<?= $data['processed_date'] ?? '' ?>">
                             </div>
                         </div>
                     </div>
@@ -496,7 +462,7 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="subsign-div">
                         <div class="input-div">
-                            <input type="date" name="reviewed_date" placeholder="Date & Time">
+                            <input type="date" name="reviewed_date" placeholder="Date & Time" value="<?= $data['reviewed_date'] ?? '' ?>">
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-f
 .top-div{width: 50%; text-align: center; margin-top: 5px; margin-bottom: 5px;}
 .top-div h1{margin: 0; font-size: 25px;}
 .sss-div{width: 25%; background-color: white; text-align: left; margin-top: 30px; margin-bottom: 30px; border: 3px solid black;}
-.personal-div{border: 1px solid black; }
+.personal-div{border: 1px solid black;}
 .namedob-div{display: flex; border: 1px solid black;}
 .name-div{width: 75%; border-right: 2px solid black;}
 .dob-div{width: 25%;}

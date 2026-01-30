@@ -1,14 +1,68 @@
+<?php
+require 'db.php';
+
+$editMode = false;
+$data = [];
+
+if (isset($_GET['id'])) {
+    $editMode = true;
+    $id = (int) $_GET['id'];
+
+    $sql = "
+    SELECT 
+        p.*, 
+        d.spouse, d.spouse_dob, d.children, d.children_dob,
+        d.beneficiaries, d.relationship, d.benef_dob,
+        w.profession_business, w.date_started, w.self_earnings,
+        w.foreign_address, w.ofw_earnings, w.membership,
+        w.reference, w.spouse_income, w.agreement,
+        c.printed_name, c.cert_signature, c.cert_date,
+        c.right_thumb, c.right_index,
+        f.business_code, f.monthly_contribution, f.start_payment,
+        f.working_spouse, f.approved_msc, f.flexi_fund,
+        f.received_signature, f.received_date,
+        f.processed_signature, f.processed_date,
+        f.reviewed_signature, f.reviewed_date
+    FROM personal_data p
+    LEFT JOIN dependents d ON p.id = d.personal_data_id
+    LEFT JOIN work w ON p.id = w.personal_data_id
+    LEFT JOIN certification c ON p.id = c.personal_data_id
+    LEFT JOIN filled_sss f ON p.id = f.personal_data_id
+    WHERE p.id = :id
+    ";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':id' => $id]);
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$data) {
+        die('Record not found');
+    }
+
+    // Decode JSON
+    $children      = json_decode($data['children'], true) ?? [];
+    $children_dob  = json_decode($data['children_dob'], true) ?? [];
+    $beneficiaries = json_decode($data['beneficiaries'], true) ?? [];
+    $relationship  = json_decode($data['relationship'], true) ?? [];
+    $benef_dob     = json_decode($data['benef_dob'], true) ?? [];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Sumbi's Online Form Conversion</title>
+    <title>SSS Form</title>
 </head>
 <body>
     
-<form method="post" action="submit.php">
+<form method="post" action="<?= $editMode ? 'update.php' : 'submit.php' ?>">
+
+    <?php if ($editMode): ?>
+        <input type="hidden" name="id" value="<?= $id ?>">
+    <?php endif; ?>
 
 <div class="bondpaper">
 
@@ -22,9 +76,9 @@
             <h1>FOR ISSUANCE OF SS NUMBER</h1>
         </div>
         <div class="sss-div">
-            <div class="name">SS Number:</div>
+            <div class="name">SS Number: <span class="required">*</span></div>
             <div class="input-div">
-                <input type="text" name="sss_number" id="sss_number" placeholder="00-0000000-0">
+                <input type="text" name="sss_number" id="sss_number" placeholder="00-0000000-0" value="<?= htmlspecialchars($data['sss_number'] ?? '') ?>" required>
             </div>
         </div>
     </div>
@@ -45,7 +99,7 @@
             <div class="name-div">
                 <div class="name">Name: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="text" class="fullname" name="name" placeholder="Lastname,       Firstname       Middlename       Suffix" required>
+                    <input type="text" class="fullname" name="name" placeholder="Lastname,       Firstname       Middlename       Suffix" value="<?= htmlspecialchars($data['name'] ?? '') ?>" required>
                 </div>
             </div>
 
@@ -76,14 +130,14 @@
                         <input type="radio" name="cs" value="others">Others
                     </div>
                     <div class="textinput-div">
-                        <input type="text" id="otherText" name="cs_other" placeholder="Your Answer" disabled>
+                        <input type="text" id="otherText" name="cs_other" placeholder="Your Answer" value="<?= htmlspecialchars($data['civil_status'] ?? '') ?>" disabled>
                     </div>
                 </div>
             </div>
             <div class="tin-div">
                 <div class="name">Tax Identification Number (If Any)</div>
                 <div class="input-div">
-                    <input type="text" name="tin" id="tin_number" placeholder="000-000-000">
+                    <input type="text" name="tin" id="tin_number" placeholder="000-000-000" value="<?= htmlspecialchars($data['tin_number'] ?? '') ?>">
                 </div>
             </div>
         </div>
@@ -92,20 +146,20 @@
             <div class="nationality-div">
                 <div class="name">Nationality: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="text" name="nationality" placeholder="Your Answer" required>
+                    <input type="text" name="nationality" placeholder="Your Answer" value="<?= htmlspecialchars($data['nationality'] ?? '') ?>" required>
                 </div>
             </div>
             <div class="religion-div">
                 <div class="name">Religion:</div>
                 <div class="input-div">
-                    <input type="text" name="religion" placeholder="Your Answer">
+                    <input type="text" name="religion" placeholder="Your Answer" value="<?= htmlspecialchars($data['nationality'] ?? '') ?>">
                 </div>
             </div>
             <div class="pob-div">
                 <div class="name">Place of Birth: <span class="required">*</span></div>
                 <div class="pobcheck-div">
                     <div class="pobinput-div">
-                        <input type="text" name="pob" id="pob" placeholder="(City/Municipality, Province)   (City, Country, if born outside the Philippines)" required>
+                        <input type="text" name="pob" id="pob" placeholder="(City/Municipality, Province)   (City, Country, if born outside the Philippines)" value="<?= htmlspecialchars($data['place_of_birth'] ?? '') ?>" required>
                     </div>
                     <div class="checkinput-div">
                         <input type="checkbox" id="sameAddress" name="same_address">The same with Home Address
@@ -118,13 +172,13 @@
             <div class="address-div" id="addressDiv">
                 <div class="name">Home Address: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="text" name="address" id="address" placeholder="(Rm./Flr./Unit No. & Bldg. Name) (House/Lot & Blk. No.) (Street Name) (Barangay/District) (City/Municipality) (Province) (Country)" required>
+                    <input type="text" name="address" id="address" placeholder="(Rm./Flr./Unit No. & Bldg. Name) (House/Lot & Blk. No.) (Street Name) (Barangay/District) (City/Municipality) (Province) (Country)" value="<?= htmlspecialchars($data['home_address'] ?? '') ?>" required>
                 </div>
             </div>
             <div class="zip-div">
                 <div class="name">ZIP Code:</div>
                 <div class="input-div">
-                    <input type="text" id="zip" name="zip" placeholder="0000">
+                    <input type="text" id="zip" name="zip" placeholder="0000" value="<?= htmlspecialchars($data['zip_code'] ?? '') ?>">
                 </div>
             </div>
         </div>
@@ -133,19 +187,19 @@
             <div class="number-div">
                 <div class="name">Mobile/Cellphone Number: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="text" id="mobile" name="mobile" placeholder="09XXXXXXXXX" required>
+                    <input type="text" id="mobile" name="mobile" placeholder="09XXXXXXXXX" value="<?= htmlspecialchars($data['mobile_number'] ?? '') ?>" required>
                 </div>
             </div>
             <div class="email-div">
                 <div class="name">Email Address: <span class="required">*</span></div>
                 <div class="input-div">
-                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" value="<?= htmlspecialchars($data['email_address'] ?? '') ?>" required>
                 </div>
             </div>
             <div class="tel-div">
                 <div class="name">Telephone Number:</div>
                 <div class="input-div">
-                    <input type="text" id="tel" name="tel" placeholder="032 255 1234">
+                    <input type="text" id="tel" name="tel" placeholder="032 255 1234" value="<?= htmlspecialchars($data['tel_number'] ?? '') ?>">
                 </div>
             </div>
         </div>
@@ -153,14 +207,14 @@
         <div class="father-div">
             <div class="name">Father's Name:</div>
             <div class="input-div">
-                <input type="text" class="fullname" name="father" placeholder="Lastname,       Firstname       Middlename       Suffix">
+                <input type="text" class="fullname" name="father" placeholder="Lastname,       Firstname       Middlename       Suffix" value="<?= htmlspecialchars($data['fathers_name'] ?? '') ?>">
             </div>
         </div>
 
         <div class="mother-div">
             <div class="name">Mother's Maiden Name:</div>
             <div class="input-div">
-                <input type="text" class="fullname" name="mother" placeholder="Lastname,       Firstname       Middlename       Suffix">
+                <input type="text" class="fullname" name="mother" placeholder="Lastname,       Firstname       Middlename       Suffix" value="<?= htmlspecialchars($data['mothers_name'] ?? '') ?>">
             </div>
         </div>
 
@@ -176,7 +230,7 @@
             <div class="spouse-div">
                 <div class="name">Spouse: (Last Name) (First Name) (Middle Name) (Suffix)</div>
                 <div class="input-div">
-                    <input type="text" class="fullname" name="spouse" placeholder="Your Answer">
+                    <input type="text" class="fullname" name="spouse" placeholder="Your Answer" value="<?= htmlspecialchars($data['spouse'] ?? '') ?>">
                 </div>
             </div>
             <div class="spousedob-div">
@@ -279,7 +333,7 @@
             <div class="name">Self-Employed (SE)</div>
                 <div class="sub-name">Profession/Business</div>
                 <div class="input-div">
-                    <input type="text" name="prof_bus" placeholder="Your Answer">
+                    <input type="text" name="prof_bus" placeholder="Your Answer" value="<?= htmlspecialchars($data['profession_business'] ?? '') ?>">
                 </div>
                 <div class="sub-name">Year Prof./Business Started</div>
                 <div class="input-div">
@@ -287,7 +341,7 @@
                 </div>
                 <div class="sub-name">Monthly Earnings</div>
                 <div class="input-div">
-                    <input type="text" class="money" name="self_earn" placeholder="P">
+                    <input type="text" class="money" name="self_earn" placeholder="P" value="<?= htmlspecialchars($data['self_earnings'] ?? '') ?>">
                 </div>
         </div>
 
@@ -295,11 +349,11 @@
             <div class="name">Overseas Filipino Worker (OFW)</div>
                 <div class="sub-name">Foreign Address</div>
                 <div class="input-div">
-                    <input type="text" name="for_add" placeholder="Your Answer">
+                    <input type="text" name="for_add" placeholder="Your Answer" value="<?= htmlspecialchars($data['foreign_address'] ?? '') ?>">
                 </div>
                 <div class="sub-name">Monthly Earnings</div>
                 <div class="input-div">
-                    <input type="text" class="money" name="ofw_earnings" placeholder="P">
+                    <input type="text" class="money" name="ofw_earnings" placeholder="P" value="<?= htmlspecialchars($data['ofw_earnings'] ?? '') ?>">
                 </div>
                 <div class="sub-name">Are you applying for membership in the Flexi-Fund Program?</div>
                 <div class="memberinput-div">
@@ -312,15 +366,15 @@
             <div class="name">Non-Working Spouse (NWS)</div>
                 <div class="sub-name">SS No./Common Reference No. of Working Spouse</div>
                 <div class="input-div">
-                    <input type="text" id="crn_number" name="reference" placeholder="000000000000">
+                    <input type="text" id="crn_number" name="reference" placeholder="000000000000" value="<?= htmlspecialchars($data['reference'] ?? '') ?>">
                 </div>
                 <div class="sub-name">Monthly Income of Working Spouse</div>
                 <div class="input-div">
-                    <input type="text" class="money" name="spouse_income" placeholder="P">
+                    <input type="text" class="money" name="spouse_income" placeholder="P" value="<?= htmlspecialchars($data['spouse_income'] ?? '') ?>">
                 </div>
                 <div class="sub-name">I agree with my spouse membership with SSS.</div>
                 <div class="input-div">
-                    <input type="text" name="agreement" placeholder="Signature over printed name">
+                    <input type="text" name="agreement" placeholder="Signature over printed name" value="<?= htmlspecialchars($data['agreement'] ?? '') ?>">
                 </div>
         </div>
 
@@ -336,12 +390,12 @@
                 <div class="sign-div">
                     <div class="subsign-div">
                         <div class="input-div">
-                            <input type="text" name="printed_name" placeholder="Printed Name">
+                            <input type="text" name="printed_name" placeholder="Printed Name" value="<?= htmlspecialchars($data['printed_name'] ?? '') ?>">
                         </div>
                     </div>
                     <div class="subsign-div">
                         <div class="input-div">
-                            <input type="text" name="cert_signature" placeholder="Signature">
+                            <input type="text" name="cert_signature" placeholder="Signature" value="<?= htmlspecialchars($data['cert_signature'] ?? '') ?>">
                         </div>
                     </div>
                     <div class="subsign-div">
@@ -354,8 +408,8 @@
         <div class="finger-div">
             <div class="sub-name">Registrant is required to affix fingerprints</div>
             <div class="input-div">
-                <input type="text" name="right_thumb" placeholder="Your right thumb">
-                <input type="text" name="right_index" placeholder="Your right index">
+                <input type="text" name="right_thumb" placeholder="Your right thumb" value="<?= htmlspecialchars($data['right_thumb'] ?? '') ?>">
+                <input type="text" name="right_index" placeholder="Your right index" value="<?= htmlspecialchars($data['right_index'] ?? '') ?>">
             </div>
         </div>
     </div>
@@ -370,11 +424,11 @@
             <div class="subleft-con">
                 <div class="name">Business Code (For SE)</div>
                 <div class="input-div">
-                    <input type="text" name="business_code" placeholder="Your Answer">
+                    <input type="text" name="business_code" placeholder="Your Answer" value="<?= htmlspecialchars($data['business_code'] ?? '') ?>">
                 </div>
                 <div class="name">Monthly Contribution (SE/OFW/NWS)</div>
                 <div class="input-div">
-                    <input type="text" class="money" name="monthly_contribution" placeholder="P">
+                    <input type="text" class="money" name="monthly_contribution" placeholder="P" value="<?= htmlspecialchars($data['monthly_contribution'] ?? '') ?>">
                 </div>
                 <div class="name">Start of Payment (For SE/NWS)</div>
                 <div class="input-div">
@@ -384,11 +438,11 @@
             <div class="subright-con">
                 <div class="name">Working Spouse's MSC (For NWS)</div>
                 <div class="input-div">
-                    <input type="text" class="money" name="working_spouse" placeholder="P">
+                    <input type="text" class="money" name="working_spouse" placeholder="P" value="<?= htmlspecialchars($data['working_spouse'] ?? '') ?>">
                 </div>
                 <div class="name">Approved MSC (For SE/OFW/NWS)</div>
                 <div class="input-div">
-                    <input type="text" class="money" name="approved_msc" placeholder="P">
+                    <input type="text" class="money" name="approved_msc" placeholder="P" value="<?= htmlspecialchars($data['approved_msc'] ?? '') ?>">
                 </div>
                 <div class="name">Flexi-Fund Application (For OFW)</div>
                 <div class="approvedinput-div">
@@ -406,7 +460,7 @@
                     <div class="sign-div">
                         <div class="subsign-div">
                             <div class="input-div">
-                                <input type="text" name="received_signature" placeholder="Signature">
+                                <input type="text" name="received_signature" placeholder="Signature" value="<?= htmlspecialchars($data['received_signature'] ?? '') ?>">
                             </div>
                         </div>
                         <div class="subsign-div">
@@ -421,7 +475,7 @@
                     <div class="sign-div">
                         <div class="subsign-div">
                             <div class="input-div">
-                                <input type="text" name="processed_signature" placeholder="Signature">
+                                <input type="text" name="processed_signature" placeholder="Signature" value="<?= htmlspecialchars($data['processed_signature'] ?? '') ?>">
                             </div>
                         </div>
                         <div class="subsign-div">
@@ -437,7 +491,7 @@
                 <div class="sign-div">
                     <div class="subsign-div">
                         <div class="input-div">
-                            <input type="text" name="reviewed_signature" placeholder="Signature">
+                            <input type="text" name="reviewed_signature" placeholder="Signature" value="<?= htmlspecialchars($data['reviewed_signature'] ?? '') ?>">
                         </div>
                     </div>
                     <div class="subsign-div">
@@ -452,7 +506,9 @@
     </div>
 
     <div class="submit-div">
-        <button type="submit">Submit</button>
+        <button type="submit">
+            <?= $editMode ? 'Update' : 'Submit' ?>
+        </button>
     </div>
 
 </div>

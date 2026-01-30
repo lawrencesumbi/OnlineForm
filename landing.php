@@ -19,6 +19,10 @@
             <form action="index.php" method="get">
                 <button type="submit">Register Now</button>
             </form>
+            <h3>or</h3>
+            <form action="admin.php" method="get">
+                <button type="submit">Log in as Admin</button>
+            </form>
         </div>        
     </div>
 

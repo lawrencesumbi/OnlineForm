@@ -53,10 +53,11 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>SSS Form</title>
 </head>
 <body>
+
+
     
 <form method="post" action="<?= $editMode ? 'update.php' : 'submit.php' ?>">
 
@@ -71,6 +72,10 @@ if (isset($_GET['id'])) {
     ?>
 
 <div class="bondpaper">
+
+<div class="exit-div">
+    <a href="landing.php"><button type="button">X</button></a>
+</div>
 
     <div class="header-div">
         <div class="logo-div">
@@ -481,6 +486,80 @@ if (isset($_GET['id'])) {
 </div>
 
 </form>
+
+<style>
+body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
+.bondpaper{width: 1180px; height: auto; background-color: white; padding-bottom: 20px;}
+.margin-div{border: 3px solid black; margin-left: 20px; margin-right: 20px;}
+.input-div input {width: 100%; font-size: 14px; box-sizing: border-box;}
+.header-div{margin-left: 20px; margin-right: 20px; display: flex;}
+.logo-div{width: 25%;}
+.logo-div img{height: 80px; width: 80px; padding-top: 13px;}
+.title-div{text-align: center; border: 1px solid #000000;}
+.title-div h3{margin: 0;}
+.top-div{width: 50%; text-align: center; margin-top: 5px; margin-bottom: 5px;}
+.top-div h1{margin: 0; font-size: 25px;}
+.sss-div{width: 25%; background-color: white; text-align: left; margin-top: 30px; margin-bottom: 30px; border: 3px solid black;}
+.personal-div{border: 1px solid black;}
+.namedob-div{display: flex; border: 1px solid black;}
+.name-div{width: 75%; border-right: 2px solid black;}
+.dob-div{width: 25%;}
+.sexcstin-div{display: flex; border: 1px solid black;}
+.sex-div{width: 17%; border-right: 2px solid black;}
+.cs-div{width: 58%; border-right: 2px solid black;}
+.csinput-div{display: flex; width: 100%;}
+.radioinput-div{width: 72%;}
+.textinput-div{width: 26%;}
+.textinput-div input{width: 100%;}
+.tin-div{width: 25%;}
+.natrelpob-div{display: flex; border: 1px solid black;}
+.nationality-div{width: 17%; border-right: 2px solid black;}
+.religion-div{width: 17%; border-right: 2px solid black;}
+.pob-div{width: 66%;}
+.pobcheck-div{display: flex;}
+.pobinput-div{width: 61%;}
+.pobinput-div input{width: 100%;}
+.checkinput-div{margin-left: 10px;}
+.addzip-div{display: flex; border: 1px solid black;}
+.address-div{width: 75%; border-right: 2px solid black;}
+.zip-div{width: 25%;}
+.contact-div{display: flex; border: 1px solid black;}
+.number-div{width: 34%; border-right: 2px solid black;}
+.email-div{width: 41%; border-right: 2px solid black;}
+.tel-div{width: 25%;}
+.father-div{border: 1px solid black;}
+.mother-div{border: 1px solid black;}
+.dependent-div{border: 1px solid black;}
+.spouse-con{display: flex; border: 1px solid black;}
+.spouse-div{width: 75%; border-right: 2px solid black;}
+.spousedob-div{width: 25%;}
+.child-con{display: flex; border: 1px solid black;}
+.children-div{width: 75%; border-right: 2px solid black;}
+.childdob-div{width: 25%;}
+.beneficiaries-con{display: flex; border: 1px solid black;}
+.benif-div{width: 55%; border-right: 2px solid black;}
+.rel-div{width: 20%; border-right: 2px solid black;}
+.benefdob-div{width: 25%;}
+.work-div{border: 1px solid black; display: flex;}
+.se-div{width: 20%; border-right: 2px solid black;}
+.ofw-div{width: 45%; border-right: 2px solid black;}
+.nws-div{width: 35%;}
+.certification-div{border: 1px solid black; display: flex;}
+.certify-div{width: 65%; border-right: 2px solid black;}
+.finger-div{width: 35%;}
+.sign-div{display: flex; width: 100%;}
+.subsign-div{width: 50%;}
+.sssemployee-div{border: 1px solid black; display: flex;}
+.left-con{width: 50%; display: flex; border-right: 2px solid black;}
+.right-con{width: 50%;}
+.subcenter-con{display: flex;}
+.subleft-con{width: 50%; border-right: 2px solid black; border-bottom: 2px solid black;}
+.subright-con{width: 50%; border-bottom: 2px solid black;}
+.subbottom-con{border-bottom: 3px solid #000000;}
+.submit-div{border: 1px solid black; text-align: center; padding-top: 10px; padding-bottom: 10px; padding-right: 10px;}
+.required{color: red; font-weight: bold; margin-left: 4px;}
+.exit-div{width: 1180px; height: auto; background-color: blue; text-align: right;}
+</style>
 
 <script src="js/script.js"></script>
 

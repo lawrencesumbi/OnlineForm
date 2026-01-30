@@ -27,6 +27,11 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Admin Page</title>
 </head>
 <body>
+
+    <div class="exit-div">
+        <a href="landing.php"><button type="button">X</button></a>
+    </div>
+
     <div class="bondpaper">
         <table border="1" cellpadding="10" cellspacing="0">
     <tr>
@@ -79,7 +84,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <style>
 body{background-color: rgb(218, 218, 218); width: 1300px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
-.bondpaper{width: 1300px; height: auto; background-color: white; padding-top: 20px; padding-bottom: 20px; padding-right: 20px; padding-left: 20px;}
+.bondpaper{width: 1300px; height: auto; background-color: white;}
 .margin-div{border: 3px solid black; margin-left: 20px; margin-right: 20px;}
 table {
     border-collapse: collapse;
@@ -93,6 +98,7 @@ table {
   th {
     background-color: #f2f2f2;
   }
+.exit-div{width: 1300px; height: auto; background-color: blue; text-align: right;}
 </style>    
 </body>
 </html>

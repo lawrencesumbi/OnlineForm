@@ -182,6 +182,7 @@ try {
     $pdo->rollBack();
     die("Update failed: " . $e->getMessage());
 }
+
 ?>
 
 <!DOCTYPE html>

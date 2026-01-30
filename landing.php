@@ -14,7 +14,9 @@
             <h3>"Submit and manage your SSS personal records quickly and securely."</h3>
         </div>
         <div class="buttons-con">
-            <input type="text" name="sss-number" placeholder="Enter your SSS Number to Login">
+            <form action="user.php" method="post">
+                <input type="text" name="sss_number" placeholder="Enter your SSS Number to Login" required>
+            </form>
             <h3>or</h3>
             <form action="index.php" method="get">
                 <button type="submit">Register Now</button>

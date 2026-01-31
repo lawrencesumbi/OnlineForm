@@ -42,8 +42,6 @@ html, body{margin: 0; width: 100%; height: 100%; overflow: hidden; font-family: 
 </style>
 
 <script>
-
-// FOR SS NUMBER VALIDATION
 const sssInput = document.getElementById('sss_number');
 sssInput.addEventListener('input', function (e) {
     let value = this.value;
@@ -57,9 +55,7 @@ sssInput.addEventListener('input', function (e) {
     value = value.slice(0, 13);
     this.value = value;
 });
-
 </script>
-
 
 </body>
 </html>

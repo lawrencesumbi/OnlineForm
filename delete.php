@@ -11,7 +11,6 @@ $id = (int) $_GET['id'];
 try {
     $pdo->beginTransaction();
 
-    // Delete from child tables first
     $stmt = $pdo->prepare("DELETE FROM dependents WHERE personal_data_id = :id");
     $stmt->execute([':id' => $id]);
 
@@ -24,7 +23,6 @@ try {
     $stmt = $pdo->prepare("DELETE FROM filled_sss WHERE personal_data_id = :id");
     $stmt->execute([':id' => $id]);
 
-    // Delete main record last
     $stmt = $pdo->prepare("DELETE FROM personal_data WHERE id = :id");
     $stmt->execute([':id' => $id]);
 
@@ -57,6 +55,7 @@ try {
             <a href="landing.php"><button type="button">OK</button></a>
         </div>
     </div>
+
 <style>
 body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
 .inner-con{width: 590px; margin: 0 auto; height: auto; background-color: white; padding-top: 30px; padding-bottom: 30px; border-radius: 10px;}
@@ -65,6 +64,7 @@ body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-f
 .suctext-div{text-align: center;}
 .back-div{text-align: center;}
 </style>
+
 </body>
 </html>
 

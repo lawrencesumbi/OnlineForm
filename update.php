@@ -3,9 +3,8 @@
 
     $backText = "OK";
 
-    // Check the previous page
     if (isset($_SERVER['HTTP_REFERER'])) {
-        $referer = basename($_SERVER['HTTP_REFERER']); // Get only the filename
+        $referer = basename($_SERVER['HTTP_REFERER']);
 
         if ($referer === 'admin.php') {
             $backText = "Back to Table";
@@ -21,7 +20,6 @@
 
     $id = (int) $_POST['id'];
 
-    // Handle civil status "others"
     $civil_status = $_POST['cs'] ?? null;
     $cs_other     = trim($_POST['cs_other'] ?? '');
     if ($civil_status === 'others' && $cs_other !== '') {
@@ -31,9 +29,7 @@
     try {
         $pdo->beginTransaction();
 
-        // =========================
-        // PERSONAL DATA
-        // =========================
+        
         $stmt = $pdo->prepare("
             UPDATE personal_data SET
                 sss_number     = :sss_number,
@@ -75,9 +71,7 @@
             ':id'             => $id
         ]);
 
-        // =========================
-        // DEPENDENTS
-        // =========================
+        
         $stmt = $pdo->prepare("
             UPDATE dependents SET
                 spouse        = :spouse,
@@ -101,9 +95,7 @@
             ':id'            => $id
         ]);
 
-        // =========================
-        // WORK
-        // =========================
+        
         $stmt = $pdo->prepare("
             UPDATE work SET
                 profession_business = :profession_business,
@@ -131,9 +123,7 @@
             ':id'                  => $id
         ]);
 
-        // =========================
-        // CERTIFICATION
-        // =========================
+        
         $stmt = $pdo->prepare("
             UPDATE certification SET
                 printed_name  = :printed_name,
@@ -153,9 +143,7 @@
             ':id'             => $id
         ]);
 
-        // =========================
-        // FILLED SSS
-        // =========================
+        
         $stmt = $pdo->prepare("
             UPDATE filled_sss SET
                 business_code        = :business_code,
@@ -218,6 +206,7 @@
                 <button type="button" onclick="history.go(-2)"><?= $backText ?></button>
             </div>
         </div>
+
     <style>
     body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
     .inner-con{width: 590px; margin: 0 auto; height: auto; background-color: white; padding-top: 30px; padding-bottom: 30px; border-radius: 10px;}
@@ -226,5 +215,6 @@
     .suctext-div{text-align: center;}
     .back-div{text-align: center;}
     </style>
+    
     </body>
     </html>

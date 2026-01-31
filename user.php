@@ -20,9 +20,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $sss_number = trim($_POST['sss_number']);
 
-// ==========================
-// Fetch Personal Data + Dependents + Work + Certification + Filled SSS
-// ==========================
+
 $stmt = $pdo->prepare("
     SELECT 
         pd.*,
@@ -47,27 +45,23 @@ if (!$user) {
     exit;
 }
 
-// ==========================
-// Decode JSON fields safely
-// ==========================
+
 $children      = json_decode($user['children'] ?? '[]', true);
 $children_dob  = json_decode($user['children_dob'] ?? '[]', true);
 $beneficiaries = json_decode($user['beneficiaries'] ?? '[]', true);
 $relationship  = json_decode($user['relationship'] ?? '[]', true);
 $benef_dob     = json_decode($user['benef_dob'] ?? '[]', true);
 
-// Ensure arrays
+
 $children      = is_array($children) ? $children : [];
 $children_dob  = is_array($children_dob) ? $children_dob : [];
 $beneficiaries = is_array($beneficiaries) ? $beneficiaries : [];
 $relationship  = is_array($relationship) ? $relationship : [];
 $benef_dob     = is_array($benef_dob) ? $benef_dob : [];
 
-// ==========================
-// Provide default values for all optional fields to prevent undefined index warnings
-// ==========================
+
 $user = array_merge([
-    // Dependents
+
     'spouse'        => null,
     'spouse_dob'    => null,
     'children'      => json_encode([]),
@@ -75,7 +69,7 @@ $user = array_merge([
     'beneficiaries' => json_encode([]),
     'relationship'  => json_encode([]),
     'benef_dob'     => json_encode([]),
-    // Work
+
     'profession_business' => null,
     'date_started'        => null,
     'self_earnings'       => null,
@@ -85,13 +79,13 @@ $user = array_merge([
     'reference'           => null,
     'spouse_income'       => null,
     'agreement'           => null,
-    // Certification
+
     'printed_name'   => null,
     'cert_signature' => null,
     'cert_date'      => null,
     'right_thumb'    => null,
     'right_index'    => null,
-    // Filled SSS
+
     'business_code'        => null,
     'monthly_contribution' => null,
     'start_payment'        => null,
@@ -106,9 +100,6 @@ $user = array_merge([
     'reviewed_date'        => null
 ], $user);
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -249,7 +240,6 @@ $user = array_merge([
     
 </div>
 
-
 </div>
 
 </div>
@@ -281,7 +271,6 @@ body{background-color: rgb(218, 218, 218); width: 1000px; margin: 0 auto; font-f
 .by{width: 50%;}
 .by p{margin: 10px;}
 .button-con{height: 20px; text-align: center; border-top: 3px solid black; padding-top: 10px; padding-bottom: 10px;}
-
 </style>
     
 </body>

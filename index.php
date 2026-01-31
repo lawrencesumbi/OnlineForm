@@ -39,7 +39,6 @@ if (isset($_GET['id'])) {
         die('Record not found');
     }
 
-    // Decode JSON
     $children      = json_decode($data['children'], true) ?? [];
     $children_dob  = json_decode($data['children_dob'], true) ?? [];
     $beneficiaries = json_decode($data['beneficiaries'], true) ?? [];

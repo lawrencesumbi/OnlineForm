@@ -91,8 +91,7 @@ if (!preg_match('/^\d{2}-\d{7}-\d{1}$/', $sss_number)) {
     die('SSS Number must be in the format 00-0000000-0');
 }
 
-// Check uniqueness (ignore current record if updating)
-$id = $_POST['id'] ?? 0; // 0 if creating new
+$id = $_POST['id'] ?? 0;
 $sql = "SELECT id FROM personal_data WHERE sss_number = :sss AND id != :id";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([':sss' => $sss_number, ':id' => $id]);
@@ -227,6 +226,7 @@ $stmt5->execute([
             <a href="index.php"><button type="button">Back to Form</button></a>
         </div>
     </div>
+
 <style>
 body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
 .inner-con{width: 590px; margin: 0 auto; height: auto; background-color: white; padding-top: 30px; padding-bottom: 30px; border-radius: 10px;}
@@ -235,5 +235,6 @@ body{background-color: rgb(218, 218, 218); width: 1180px; margin: 0 auto; font-f
 .suctext-div{text-align: center;}
 .back-div{text-align: center;}
 </style>
+
 </body>
 </html>

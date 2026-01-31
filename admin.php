@@ -32,8 +32,8 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a href="landing.php"><button type="button">X</button></a>
     </div>
 
-    <div class="bondpaper">
-        <table border="1" cellpadding="10" cellspacing="0">
+<div class="bondpaper">
+    <table border="1" cellpadding="10" cellspacing="0">
     <tr>
         <th>ID</th>
         <th>SSS Number</th>
@@ -58,13 +58,26 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($row['civil_status']) ?></td>
                 <td><?= htmlspecialchars($row['nationality']) ?></td>
                 <td><?= htmlspecialchars($row['mobile_number']) ?></td>
-                <td><?= htmlspecialchars($row['email_address']) ?></td>
+                <td><?= htmlspecialchars($row['email_address']) ?></td> 
                 <td>
                     <a href="index.php?id=<?= $row['id'] ?>">Edit</a> |
                     <a href="delete.php?id=<?= $row['id'] ?>"
                        onclick="return confirm('Are you sure you want to delete this record?');">
                        Delete
-                    </a>
+                    </a> |
+
+
+
+                    
+                    <form action="other.php" method="post">
+                        <input type="text" name="sss_number" id="sss_number" placeholder="SSS Number to Filter" required>
+                    </form>
+
+
+
+
+
+
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -73,32 +86,36 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td colspan="9" style="text-align:center;">No records found</td>
         </tr>
     <?php endif; ?>
-</table>
-
-
-
-
-
-    </div>
-
+    </table>
+</div>
 
 <style>
-body{background-color: rgb(218, 218, 218); width: 1300px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
-.bondpaper{width: 1300px; height: auto; background-color: white;}
+body{background-color: rgb(218, 218, 218); width: 1400px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
+.bondpaper{width: 1400px; height: auto; background-color: white;}
 .margin-div{border: 3px solid black; margin-left: 20px; margin-right: 20px;}
-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  th, td {
-    border: 1px solid black;
-    padding: 10px;
-    text-align: left;
-  }
-  th {
-    background-color: #f2f2f2;
-  }
-.exit-div{width: 1300px; height: auto; background-color: blue; text-align: right;}
-</style>    
+table {border-collapse: collapse; width: 100%;}
+th, td { border: 1px solid black; padding: 10px; text-align: left;}
+th {background-color: #f2f2f2;}
+.exit-div{width: 1400px; height: auto; background-color: blue; text-align: right;}
+td input{width: 130px;}
+
+</style>
+
+<script>
+const sssInput = document.getElementById('sss_number');
+sssInput.addEventListener('input', function (e) {
+    let value = this.value;
+    value = value.replace(/\D/g, '');
+    if (value.length > 2) {
+        value = value.slice(0, 2) + '-' + value.slice(2);
+    }
+    if (value.length > 10) {
+        value = value.slice(0, 10) + '-' + value.slice(10, 11);
+    }
+    value = value.slice(0, 13);
+    this.value = value;
+});
+</script>
+
 </body>
 </html>

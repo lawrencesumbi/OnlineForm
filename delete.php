@@ -54,7 +54,7 @@ try {
             <p>We have deleted your information. Thank you.</p>
         </div>
         <div class="back-div">
-            <a href="admin.php"><button type="button">Back to Table</button></a>
+            <a href="landing.php"><button type="button">OK</button></a>
         </div>
     </div>
 <style>

@@ -89,7 +89,7 @@ if (isset($_GET['id'])) {
         <div class="sss-div">
             <div class="name">SS Number: <span class="required">*</span></div>
             <div class="input-div">
-                <input type="text" name="sss_number" id="sss_number" placeholder="00-0000000-0" value="<?= htmlspecialchars($data['sss_number'] ?? '') ?>" required>
+                <input type="text" name="sss_number" id="sss_number" placeholder="00-0000000-0" pattern="\d{2}-\d{7}-\d{1}" title="SSS Number must be in format 00-0000000-0" value="<?= htmlspecialchars($data['sss_number'] ?? '') ?>" required> 
             </div>
         </div>
     </div>

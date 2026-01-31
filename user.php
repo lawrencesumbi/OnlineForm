@@ -1,9 +1,22 @@
 <?php
 require 'db.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    die('Invalid request');
-}
+$sql = "SELECT 
+            id,
+            sss_number,
+            name,
+            name_dob,
+            sex,
+            civil_status,
+            nationality,
+            mobile_number,
+            email_address
+        FROM personal_data
+        ORDER BY id DESC";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $sss_number = trim($_POST['sss_number']);
 
@@ -30,7 +43,8 @@ $stmt->execute([':sss_number' => $sss_number]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    die('SSS Number not found');
+    header("Location: landing.php?error=SSS_NumberNotFound");
+    exit;
 }
 
 // ==========================
@@ -132,6 +146,7 @@ $user = array_merge([
 <div class="con-1">
     <div class="personal_data">
         <h2>A. PERSONAL DATA</h2>
+        <p style="display: none;"><strong>ID:</strong> <?= htmlspecialchars($user['id']) ?></p>
         <p><strong>Name:</strong> <?= htmlspecialchars($user['name']) ?></p>
         <p><strong>Date of Birth:</strong> <?= htmlspecialchars($user['name_dob']) ?></p>
         <p><strong>Sex:</strong> <?= htmlspecialchars($user['sex']) ?></p>
@@ -223,13 +238,15 @@ $user = array_merge([
         <p><strong>Reviewed Date:</strong> <?= htmlspecialchars($user['reviewed_date'] ?? 'N/A') ?></p>
     </div>
 </div>
-<div class="button">
-    <a href="index.php?id=<?= $row['id'] ?>">Edit</a> |
-                    <a href="delete.php?id=<?= $row['id'] ?>"
-                       onclick="return confirm('Are you sure you want to delete this record?');">
-                       Delete
-                    </a>
-
+<div class="button-con">
+    <a href="index.php?id=<?= $user['id'] ?>">
+        <button>Edit</button>
+    </a>
+    <a href="delete.php?id=<?= (int)$user['id'] ?>" 
+       onclick="return confirm('Are you sure you want to delete this record?');">
+        <button>Delete</button>
+    </a>
+    
 </div>
 
 
@@ -239,8 +256,8 @@ $user = array_merge([
 
 <style>
 body{background-color: rgb(218, 218, 218); width: 1000px; margin: 0 auto; font-family: Cambria; padding-top: 50px; padding-bottom: 50px;}
-.bondpaper{width: 1000px; height: 1185px; background-color: white; padding-bottom: 20px;}
-.margin-div{width: 955px; height: 1050px; border: 3px solid black; margin-left: 20px; margin-right: 20px;}
+.bondpaper{width: 1000px; height: auto; background-color: white; padding-bottom: 20px;}
+.margin-div{width: 955px; height: auto; border: 3px solid black; margin-left: 20px; margin-right: 20px;}
 .exit-div{width: 1000px; height: auto; background-color: blue; text-align: right;}
 .header-div{margin-left: 20px; margin-right: 20px; display: flex; padding-top: 5px; padding-bottom: 5px;}
 .logo-div{width: 25%;}  
@@ -263,6 +280,8 @@ body{background-color: rgb(218, 218, 218); width: 1000px; margin: 0 auto; font-f
 .filled p, h2{margin: 10px}
 .by{width: 50%;}
 .by p{margin: 10px;}
+.button-con{height: 20px; text-align: center; border-top: 3px solid black; padding-top: 10px; padding-bottom: 10px;}
+
 </style>
     
 </body>

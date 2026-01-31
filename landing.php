@@ -14,16 +14,16 @@
             <h3>"Submit and manage your SSS personal records quickly and securely."</h3>
         </div>
         <div class="buttons-con">
-            <form action="user.php" method="post">
-                <input type="text" name="sss_number" placeholder="Enter your SSS Number to Login" required>
-            </form>
-            <h3>or</h3>
             <form action="index.php" method="get">
                 <button type="submit">Register Now</button>
             </form>
             <h3>or</h3>
             <form action="admin.php" method="get">
                 <button type="submit">Log in as Admin</button>
+            </form>
+            <h3>or</h3>
+            <form action="user.php" method="post">
+                <input type="text" name="sss_number" id="sss_number" placeholder="Enter your SSS Number to Login" required>
             </form>
         </div>        
     </div>
@@ -40,6 +40,26 @@ html, body{margin: 0; width: 100%; height: 100%; overflow: hidden; font-family: 
 .buttons-con button {padding: 12px 16px; font-size: 16px; border: none; border-radius: 6px; background-color: #1e94d8; color: #fff; cursor: pointer; font-weight: 600; transition: background 0.3s ease;}
 .buttons-con button:hover {background-color: #0d6de3;}
 </style>
+
+<script>
+
+// FOR SS NUMBER VALIDATION
+const sssInput = document.getElementById('sss_number');
+sssInput.addEventListener('input', function (e) {
+    let value = this.value;
+    value = value.replace(/\D/g, '');
+    if (value.length > 2) {
+        value = value.slice(0, 2) + '-' + value.slice(2);
+    }
+    if (value.length > 10) {
+        value = value.slice(0, 10) + '-' + value.slice(10, 11);
+    }
+    value = value.slice(0, 13);
+    this.value = value;
+});
+
+</script>
+
 
 </body>
 </html>

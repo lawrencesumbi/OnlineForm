@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2026 at 06:22 PM
+-- Generation Time: Jan 31, 2026 at 02:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,19 +42,13 @@ CREATE TABLE `certification` (
 --
 
 INSERT INTO `certification` (`id`, `personal_data_id`, `printed_name`, `cert_signature`, `cert_date`, `right_thumb`, `right_index`) VALUES
-(1, 9, 'Xena Rika', 'Signed', '2026-01-23', 'ok', 'ok'),
 (2, 12, '', '', '0000-00-00', '', ''),
 (3, 13, '', '', '0000-00-00', '', ''),
 (4, 14, '', '', '0000-00-00', '', ''),
 (5, 16, '', '', '0000-00-00', '', ''),
 (6, 17, '', '', '0000-00-00', '', ''),
 (7, 18, '', '', '0000-00-00', '', ''),
-(8, 19, '', '', '0000-00-00', '', ''),
-(9, 20, '', '', '0000-00-00', '', ''),
-(12, 23, '', '', '0000-00-00', '', ''),
-(13, 24, '', '', '0000-00-00', '', ''),
-(18, 29, 'Arsenio Orr', 'Perferendis a beatae', '2012-07-25', 'ok', 'ok'),
-(19, 30, 'Angelica Marshall', 'Eligendi rerum natus', '2015-01-08', 'Sunt minus ea beatae', 'Dolor doloremque dis');
+(27, 38, 'Zachary Harrison', 'Reiciendis et iste t', '2018-05-12', 'Asperiores voluptati', 'Similique aliquid co');
 
 -- --------------------------------------------------------
 
@@ -82,8 +76,6 @@ INSERT INTO `dependents` (`id`, `personal_data_id`, `spouse`, `spouse_dob`, `chi
 (1, 3, 'Sumbi, Lawrence Guian Parba', '2026-01-23', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (2, 4, 'Obaob, Patricia Ann Mae Largo', '2005-03-20', '[\"Sumbi, Lelouch Kai Zhen Obaob\",\"Sumbi, Princess Gi-Ann Mae Obaob\",\"\"]', '[\"2026-01-23\",\"2026-01-23\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (5, 7, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(7, 9, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(9, 11, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (10, 12, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (11, 13, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (12, 14, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
@@ -91,12 +83,7 @@ INSERT INTO `dependents` (`id`, `personal_data_id`, `spouse`, `spouse_dob`, `chi
 (14, 16, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (15, 17, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
 (16, 18, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(17, 19, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(18, 20, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(21, 23, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(22, 24, '', '0000-00-00', '[\"\",\"\",\"\"]', '[\"\",\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]', '[\"\",\"\"]'),
-(27, 29, 'Omnis blanditiis des', '1979-02-26', '[\"Inventore ipsum vita\",\"Totam itaque ducimus\",\"Maxime fuga Repelle\"]', '[\"1995-01-09\",\"1998-01-01\",\"1976-08-27\"]', '[\"Quia distinctio Ips\",\"Minim non voluptas n\"]', '[\"none\",\"none\"]', '[\"1996-10-18\",\"1970-06-28\"]'),
-(28, 30, 'Beatae itaque consec', '2001-03-05', '[\"Voluptatem sed qui i\",\"Eveniet et placeat\",\"Nulla et ea quo libe\"]', '[\"2015-11-08\",\"2021-04-01\",\"2009-01-20\"]', '[\"Odio ea consequatur\",\"Aut aliqua Velit et\"]', '[\"Voluptatem id facer\",\"Sed pe', '[\"1985-05-06\",\"1970-01-08\"]');
+(36, 38, 'Nisi minus veniam i', '2007-04-12', '[\"Ea ea dolorem maxime\",\"Dolore eum et deleni\",\"Id culpa laborum se\"]', '[\"1988-11-13\",\"1973-10-21\",\"2000-04-20\"]', '[\"Minima voluptatum qu\",\"Quis non voluptate d\"]', '[\"hello\",\"hi\"]', '[\"1982-09-27\",\"2003-09-06\"]');
 
 -- --------------------------------------------------------
 
@@ -130,12 +117,7 @@ INSERT INTO `filled_sss` (`id`, `personal_data_id`, `business_code`, `monthly_co
 (2, 16, 'IT3A', '1,000.00', '2026-01-23', '1,000.00', '500.00', 'approved', 'Signed', '2026-01-23', 'Signed', '2026-01-23', 'Signed', '2026-01-23'),
 (3, 17, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
 (4, 18, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
-(5, 19, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
-(6, 20, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
-(9, 23, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
-(10, 24, '', '', '0000-00-00', '', '', NULL, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00'),
-(15, 29, 'Voluptatem eos debi', '2', '2026-01-26', '1,000.00', '', 'approved', 'Dolor eius id vel p', '2002-06-26', 'Omnis voluptate haru', '2003-02-10', 'Architecto consequat', '1999-02-01'),
-(16, 30, 'Sapiente earum natus', '2', '1973-12-04', '', '', 'disapproved', 'Sit tenetur exceptur', '2022-03-20', 'Magnam modi et ex re', '1982-10-20', 'Sit ab veniam mini', '1974-05-31');
+(24, 38, 'Doloremque molestiae', '7', '2020-11-21', '10,000', '5,000', 'approved', 'Quibusdam velit dese', '2010-06-18', 'Et vitae earum harum', '2014-08-28', 'Nesciunt animi et ', '2000-07-03');
 
 -- --------------------------------------------------------
 
@@ -171,8 +153,6 @@ INSERT INTO `personal_data` (`id`, `sss_number`, `name`, `name_dob`, `sex`, `civ
 (3, '06-1234567-8', 'Obaob, Patricia Ann Mae Largo', '2005-03-20', 'female', 'married', '123-456-789', 'Filipino', 'Filipino', 'Cebu City', 'Purok Bayabas, Pitalo, SanFernando, Cebu, Philippines', '1234', '+639058557409', 'patricia@gmail.com', '09123456789', 'Obaob, Eutiquio Alfeche', 'Largo, Nerissa Ravina'),
 (4, '06-1234567-9', 'Sumbi, Lawrence Guian Parba', '2004-11-04', 'male', 'married', '123-456-789', 'Filipino', 'Filipino', 'Cebu', 'Purok Talong, Vito, Minglanilla, Cebu', '6036', '09753140724', 'guiansumbi@gmail.com', '09123456789', 'Sumbi, Raul Capada', 'Parba, Rowena Abella'),
 (7, '12-3456789-1', 'Pader, Xander Ryzen Parba', '2011-01-01', 'male', 'single', '123-456-789', 'Filipino', 'Filipino', 'Purok Talong, Vito, Minglanilla, Cebu', 'Purok Talong, Vito, Minglanilla, Cebu', '', '09123456789', 'xander@gmail.com', '09123456789', '', ''),
-(9, '12-3456789-7', 'Pader, Xena Rika', '2026-01-23', 'female', 'single', '', 'Filipino', 'Filipino', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'xena@gmail.com', '', 'Pader, Philmon', 'Parba, Malou Abella'),
-(11, '98-4898612-6', 'Parba, Bham Angel Delabrino', '2026-01-23', 'female', 'single', '', 'Filipino', 'Filipino', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'bham@gmail.com', '', 'Parba, Bobby Delabrino', 'Delabrino, Alma'),
 (12, '', 'Parba, Benish Reina Delabrino', '2026-01-23', 'female', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'benish@gmail.com', '09123456789', 'Parba, Bobby Delabrino', 'Delabrino, Alma'),
 (13, '', 'Parba, Bryll Josh Delabrino', '2026-01-23', 'male', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'bryll@gmail.com', '', 'Parba, Bobby Delabrino', 'Delabrino, Alma'),
 (14, '', 'Obaob, King James Largo', '2026-01-23', 'male', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'king@gmail.com', '', 'Obaob, Eutiquio Alfeche', 'Obaob, Nerissa '),
@@ -180,12 +160,7 @@ INSERT INTO `personal_data` (`id`, `sss_number`, `name`, `name_dob`, `sex`, `civ
 (16, '', 'Obaob, Lenzey Largo', '2026-01-23', 'female', 'single', '', 'Filipino', 'Roman Catholic', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'lenzey@gmail.com', '', 'Obaob, Eutiquio Alfeche', 'Largo, Nerissa Ravina'),
 (17, '', 'sample1', '2026-01-23', 'male', 'others', '', 'Filipino', '', 'Sample1', 'sample01', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
 (18, '', 'sample2', '2012-12-12', 'male', 'single', '', 'Filipino', '', 'Bogo City', 'Bogo City', '', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
-(19, '', 'Sample3', '2021-12-12', 'male', 'single', '', 'Filipino', '', 'Minglanilla', 'Minglanilla', '', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
-(20, '', 'Sample 4', '2025-12-12', 'male', 'single', '', 'Filipino', '', 'Minglanilla', 'Naga', '', '09123456789', 'guiansumbi@gmail.com', '', '', ''),
-(23, '12-3456789-9', 'Sample11', '2026-01-24', 'male', 'single', '', 'Filipino', '', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
-(24, '12-3456789-9', 'Sample11', '2026-01-24', 'male', 'single', '', 'Filipino', 'Filipino', 'Bogo, Cebu', 'Purok Matamban, Anonang Sur', '6010', '+639058557409', 'guiansumbi@gmail.com', '', '', ''),
-(29, '13-6', 'Patricia Johnston', '1990-10-13', 'male', 'Voluptatibus', '711', 'Beatae', 'Beatae', 'Bogo, Cebu', 'Bogo, Cebu', '6010', '09058557409', 'daseqojeri@mailinator.com', '', 'Cillum commodi aperi', 'Aliquip sit occaecat'),
-(30, '27-0', 'Sheila Kaufman', '2021-05-23', 'male', 'legally separated', '736', 'Est debitis dolor e', 'Error minim repudian', 'Nostrum ipsam id cu', 'Nostrum ipsam id cu', '9855', '09456454544', 'dibinibe@mailinator.com', '', 'Deserunt error eos o', 'Iste vero minima qua');
+(38, '05-2165564-6', 'Acton Wade', '1972-12-21', 'female', 'Architecto repudiand', '802', 'Ab', 'Ab', 'Dolore quisquam dolo', 'Sint esse dolorem ', '2849', '09498464654', 'bybagetev@mailinator.com', '', 'Aperiam culpa incidi', 'Laborum quae quasi i');
 
 -- --------------------------------------------------------
 
@@ -213,19 +188,13 @@ CREATE TABLE `work` (
 
 INSERT INTO `work` (`id`, `personal_data_id`, `profession_business`, `date_started`, `self_earnings`, `foreign_address`, `ofw_earnings`, `membership`, `reference`, `spouse_income`, `agreement`) VALUES
 (1, 7, 'Web Developer', '2021-12-01', '10,000.00', 'Japan', '5,000.00', 'yes', '123456789123', '20,000', 'I agree.'),
-(2, 9, 'helllllllllooooooooo', '0000-00-00', '10,000.00', '', '', 'no', '', '', ''),
 (3, 12, '', '0000-00-00', '', '', '', '', '', '', ''),
 (4, 13, '', '0000-00-00', '', '', '', 'no', '', '', ''),
 (5, 14, '', '0000-00-00', '', '', '', '', '', '', ''),
 (6, 16, '', '0000-00-00', '', '', '', 'no', '', '', ''),
 (7, 17, '', '0000-00-00', '', '', '', NULL, '', '', ''),
 (8, 18, '', '0000-00-00', '', '', '', NULL, '', '', ''),
-(9, 19, '', '0000-00-00', '', '', '', NULL, '', '', ''),
-(10, 20, '', '0000-00-00', '', '', '', NULL, '', '', ''),
-(13, 23, '', '0000-00-00', '', '', '', NULL, '', '', ''),
-(14, 24, 'sample11', '0000-00-00', '', '', '', NULL, '', '', ''),
-(19, 29, 'HAHAHHAH', '1998-12-21', '50,000', 'HAHAHAHA', '10,000', 'yes', '986', '415', 'Fugiat quasi corpori'),
-(20, 30, 'Enim quis et Nam eiu', '2005-08-09', '', 'Sed ab non eiusmod d', '', 'no', '724', '345', 'Ad molestias consequ');
+(28, 38, 'Fugiat quis invento', '2026-09-26', '', 'Totam consequatur L', '', 'yes', '600', '838', 'Ut nihil velit venia');
 
 --
 -- Indexes for dumped tables
@@ -273,31 +242,31 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `certification`
 --
 ALTER TABLE `certification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `dependents`
 --
 ALTER TABLE `dependents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `filled_sss`
 --
 ALTER TABLE `filled_sss`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `personal_data`
 --
 ALTER TABLE `personal_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables

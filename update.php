@@ -1,6 +1,19 @@
     <?php
     require 'db.php';
 
+    $backText = "OK";
+
+    // Check the previous page
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        $referer = basename($_SERVER['HTTP_REFERER']); // Get only the filename
+
+        if ($referer === 'admin.php') {
+            $backText = "Back to Table";
+        } elseif ($referer === 'user.php') {
+            $backText = "Back to Profile";
+        }
+    }
+
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         header('Location: index.php');
         exit;
@@ -202,7 +215,7 @@
                 <p>We have updated your information and will process it shortly. Thank you.</p>
             </div>
             <div class="back-div">
-                <a href="admin.php"><button type="button">Back to Table</button></a>
+                <button type="button" onclick="history.go(-2)"><?= $backText ?></button>
             </div>
         </div>
     <style>

@@ -87,6 +87,18 @@ if ($civil_status === 'others' && $cs_other !== '') {
     $civil_status = $cs_other;
 }
 
+if (!preg_match('/^\d{2}-\d{7}-\d{1}$/', $sss_number)) {
+    die('SSS Number must be in the format 00-0000000-0');
+}
+
+// Check uniqueness (ignore current record if updating)
+$id = $_POST['id'] ?? 0; // 0 if creating new
+$sql = "SELECT id FROM personal_data WHERE sss_number = :sss AND id != :id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([':sss' => $sss_number, ':id' => $id]);
+if ($stmt->fetch()) {
+    die('SSS Number already exists. Please enter a unique number.');
+}
 
 $sql = "INSERT INTO personal_data
 (sss_number, name, name_dob, sex, civil_status, tin_number, nationality, religion, place_of_birth, home_address, zip_code, mobile_number, email_address, tel_number, fathers_name, mothers_name)
